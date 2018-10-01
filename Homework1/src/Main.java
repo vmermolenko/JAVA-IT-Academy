@@ -5,7 +5,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Task14();
+		Task133();
 	}
 
 	// 1. Заполнить массив x целыми числами и вывести содержимое массива x на экран
@@ -359,6 +359,36 @@ public class Main {
 			System.out.println(i + ": " + list[i]);
 		}
 
+	}
+	
+	//методом выбора
+	public static void Task133() {
+		Random random = new Random();
+		int value = random.nextInt(50);
+		System.out.println("Array :" + value);
+		int[] arr = new int[value];
+
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = random.nextInt(50);
+			System.out.println(i + ": " + arr[i]);
+		}
+		
+		
+		for (int min = 0; min < arr.length - 1; min++) {
+			int least = min;
+			for (int j = min + 1; j < arr.length; j++) {
+			    if (arr[j] < arr[least]) {
+					least = j;
+				}
+			}
+			    int tmp = arr[min];
+			    arr[min] = arr[least];
+			    arr[least] = tmp;
+		}
+		
+		for (int i = 0; i < arr.length; i++) {
+			System.out.println(i + ": " + arr[i]);
+		}
 	}
 
 	// 14. Найти в массиве и вывести на экран все элементы в заданном диапазоне
