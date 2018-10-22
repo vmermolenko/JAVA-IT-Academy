@@ -9,12 +9,24 @@ public class Tram extends Auto{
 		
 	}
 
-	public Tram(int passenger, double weight, Engine engine, int wheel, String materialWheel, int wheelMetal,
-			double electricityConsumption) {
-		super(passenger, weight, engine, wheel, materialWheel);
+
+	/**
+	 * @param passenger
+	 * @param ticket
+	 * @param speed
+	 * @param engine
+	 * @param wheel
+	 * @param materialWheel
+	 * @param wheelMetal
+	 * @param electricityConsumption
+	 */
+	public Tram(int passenger, double ticket, double speed, Engine engine, int wheel, String materialWheel,
+			int wheelMetal, double electricityConsumption) {
+		super(passenger, ticket, speed, engine, wheel, materialWheel);
 		this.wheelMetal = wheelMetal;
 		this.electricityConsumption = electricityConsumption;
 	}
+
 
 	@Override
 	public void move() {

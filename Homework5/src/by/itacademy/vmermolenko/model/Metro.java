@@ -8,6 +8,27 @@ public class Metro extends Tram {
 
 	}
 
+	
+	
+	/**
+	 * @param passenger
+	 * @param ticket
+	 * @param speed
+	 * @param engine
+	 * @param wheel
+	 * @param materialWheel
+	 * @param wheelMetal
+	 * @param electricityConsumption
+	 * @param countRailwayCarriage
+	 */
+	public Metro(int passenger, double ticket, double speed, Engine engine, int wheel, String materialWheel,
+			int wheelMetal, double electricityConsumption, int countRailwayCarriage) {
+		super(passenger, ticket, speed, engine, wheel, materialWheel, wheelMetal, electricityConsumption);
+		this.countRailwayCarriage = countRailwayCarriage;
+	}
+
+
+
 	public int getCountRailwayCarriage() {
 		return countRailwayCarriage;
 	}
@@ -16,12 +37,7 @@ public class Metro extends Tram {
 		this.countRailwayCarriage = countRailwayCarriage;
 	}
 
-	public Metro(int passenger, double weight, Engine engine, int wheel, String materialWheel, int wheelMetal,
-			double electricityConsumption, int countRailwayCarriage) {
-		super(passenger, weight, engine, wheel, materialWheel, wheelMetal, electricityConsumption);
-		this.countRailwayCarriage = countRailwayCarriage;
-	}
-	
+
 	public void info() {
 		System.out.println("Metro info");
 	}

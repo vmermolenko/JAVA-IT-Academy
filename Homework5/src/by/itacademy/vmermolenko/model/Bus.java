@@ -12,10 +12,23 @@ public class Bus extends Auto{
 	}
 
 
-	public Bus(int passenger, double weight, Engine engine, int wheel, String materialWheel, int fuelConsumption) {
-		super(passenger, weight, engine, wheel, materialWheel);
+	/**
+	 * @param passenger
+	 * @param ticket
+	 * @param speed
+	 * @param engine
+	 * @param wheel
+	 * @param materialWheel
+	 * @param fuelConsumption
+	 */
+	public Bus(int passenger, double ticket, double speed, Engine engine, int wheel, String materialWheel,
+			int fuelConsumption) {
+		super(passenger, ticket, speed, engine, wheel, materialWheel);
 		this.fuelConsumption = fuelConsumption;
 	}
+
+
+
 
 
 	public int getFuelConsumption() {

@@ -3,7 +3,8 @@ package by.itacademy.vmermolenko.model;
 public abstract class Auto {
 	
 	int passenger;
-	double weight;
+	double ticket;
+	double speed;
 	Engine engine;
 	int wheel;
 	String materialWheel;
@@ -14,15 +15,42 @@ public abstract class Auto {
 	}
 	
 	
-	
-	public Auto(int passenger, double weight, Engine engine, int wheel, String materialWheel) {
+
+	/**
+	 * @param passenger
+	 * @param ticket
+	 * @param speed
+	 * @param engine
+	 * @param wheel
+	 * @param materialWheel
+	 */
+	public Auto(int passenger, double ticket, double speed, Engine engine, int wheel, String materialWheel) {
 		super();
 		this.passenger = passenger;
-		this.weight = weight;
+		this.ticket = ticket;
+		this.speed = speed;
 		this.engine = engine;
 		this.wheel = wheel;
 		this.materialWheel = materialWheel;
 	}
+
+
+
+
+
+	public double getSpeed() {
+		return speed;
+	}
+
+
+
+
+
+	public void setSpeed(double speed) {
+		this.speed = speed;
+	}
+
+
 
 
 
@@ -44,14 +72,14 @@ public abstract class Auto {
 
 
 
-	public double getWeight() {
-		return weight;
+	public double getTicket() {
+		return ticket;
 	}
 
 
 
-	public void setWeight(double weight) {
-		this.weight = weight;
+	public void setTicket(double ticket) {
+		this.ticket = ticket;
 	}
 
 
