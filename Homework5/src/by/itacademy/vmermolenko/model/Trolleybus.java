@@ -4,7 +4,6 @@ public class Trolleybus extends Auto{
 
 	private double electricityConsumption;
 	
-	
 	public Trolleybus() {
 		
 	}

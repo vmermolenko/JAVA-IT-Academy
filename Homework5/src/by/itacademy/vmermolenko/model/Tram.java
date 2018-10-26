@@ -5,6 +5,7 @@ public class Tram extends Auto{
 	private int wheelMetal;
 	private double electricityConsumption;
 	
+	
 	public Tram() {
 		
 	}

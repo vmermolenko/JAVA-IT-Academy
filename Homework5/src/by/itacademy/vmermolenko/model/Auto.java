@@ -2,19 +2,23 @@ package by.itacademy.vmermolenko.model;
 
 public abstract class Auto {
 	
+	public int id = 0;
+	public static int Nextid = 0;
 	int passenger;
 	double ticket;
 	double speed;
 	Engine engine;
 	int wheel;
 	String materialWheel;
-	
 
+	
 	public Auto() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
+	{
+		id = Nextid++;
+	}
 
 	/**
 	 * @param passenger

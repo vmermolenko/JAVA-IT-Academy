@@ -3,13 +3,11 @@ package by.itacademy.vmermolenko.model;
 public class Metro extends Tram {
 
 	private int countRailwayCarriage;
-
+	
 	public Metro() {
 
 	}
 
-	
-	
 	/**
 	 * @param passenger
 	 * @param ticket

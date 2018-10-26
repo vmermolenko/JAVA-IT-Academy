@@ -1,16 +1,14 @@
 package by.itacademy.vmermolenko.model;
 
 public class Bus extends Auto{
-
-	private int fuelConsumption;
 	
+	private int fuelConsumption;
 	
 	@Override
 	public void move() {
 		// TODO Auto-generated method stub
 		
 	}
-
 
 	/**
 	 * @param passenger

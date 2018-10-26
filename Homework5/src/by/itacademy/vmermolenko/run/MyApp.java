@@ -21,23 +21,18 @@ public class MyApp {
 		groundTransportation.autos[2] = new Trolleybus(40, 14, 11, new Engine("zubr", 1000), 10, "litii", 1000);
 		
 		groundTransportation.autos[3] = new Metro(40, 11, 10, new Engine("zubr", 1000), 10, "metal", 100, 100, 100);
-		
-		
+
 		
 		for (Auto auto : groundTransportation.autos) {
 					
-			System.out.println(auto.getClass() + " Ticket:" + auto.getTicket() + " Speed:" + auto.getSpeed());
+			System.out.println(auto.getClass() + " id:" + auto.id +  " Ticket:" + auto.getTicket() + " Speed:" + auto.getSpeed() );
 
 		}
-		
-		
+
 		groundTransportation.info();
 		groundTransportation.Sort();
 		groundTransportation.info();
 		
 		//groundTransportation.Sort(groundTransportation.autos);
-		
-		
 	}
-
 }
