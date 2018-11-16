@@ -70,10 +70,7 @@ public class MyApp {
 		// TODO Auto-generated method stub
 		String text = "В тексте письма Минобра, которое подписано первым заместителем министра образования Ириной Старовойтовой, говорится о поручении Совмина от 4 октября 2018 года № 05/209−440/11284р. В документе отмечается, что «наличие достаточно большого числа выпускников учреждений образования, распределенных (направленных на работу) и не приступивших к работе в соответствии с законодательством, свидетельствует о недостаточной работе учреждений образования с самими выпускниками и заказчиками кадров, а также о невыполнении в полном объеме заказа на подготовку кадров».\r\n" + 
 				"Читать полностью:  https://finance.tut.by/news615010.html."
-				+ "В тексте письма Минобра.";
-		
-		
-		
+				+ " В тексте письма Минобра.";
 		
 		
 		//List<Sentence> listSentence = new ArrayList<Sentence>();
@@ -85,8 +82,6 @@ public class MyApp {
 			System.out.println(resultParagraph[i]);
 			
 		}
-		
-		
 		
 		List<Paragraph> listParagraph  = new ArrayList<Paragraph>();
 		for (int i = 0; i < resultParagraph.length; i++) {
@@ -148,15 +143,9 @@ public class MyApp {
 		
 		list.printListing();
 		
-		
 		int countSentence = list.countSentenceIdenticalWords();
 		
-		
-		
 		System.out.println("countSentenceIdenticalWords: " + countSentence);
-		
-		
-		
 		
 		
 	}
