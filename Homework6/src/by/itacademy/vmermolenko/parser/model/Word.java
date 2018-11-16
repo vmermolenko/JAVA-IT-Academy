@@ -5,6 +5,7 @@ import java.util.List;
 public class Word {
 	
 	public List<Symbol> listSymbol;
+	
 
 	public Word() {
 		super();

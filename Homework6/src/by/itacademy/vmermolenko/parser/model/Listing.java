@@ -20,7 +20,7 @@ public class Listing {
 					}
 					result += " ";
 				}
-				result += ".";
+				result = result.trim() + ".";
 			}
 			result += "\r\n";
 			

@@ -27,7 +27,7 @@ public class Paragraph {
 				}
 				result += " ";
 			}
-			result += ".";
+			result = result.trim() + ".";
 		}
 		result += "\r\n";
 		System.out.println(result);
