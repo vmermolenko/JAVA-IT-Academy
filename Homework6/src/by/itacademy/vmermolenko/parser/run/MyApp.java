@@ -83,6 +83,7 @@ public class MyApp {
 		
 		list.printListing();
 		
+		//1. Найти наибольшее количество предложений текста, в которых есть одинаковые слова.
 		int countSentence = list.countSentenceIdenticalWords();
 		
 		System.out.println("countSentenceIdenticalWords: " + countSentence);
