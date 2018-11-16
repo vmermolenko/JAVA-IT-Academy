@@ -4,6 +4,8 @@ public class Symbol {
 	
 	public char shar;
 	
+	public int position;
+	
 	public Symbol() {
 		// TODO Auto-generated constructor stub
 	}
@@ -18,6 +20,14 @@ public class Symbol {
 
 	public void setShar(char shar) {
 		this.shar = shar;
+	}
+
+	public int getPosition() {
+		return position;
+	}
+
+	public void setPosition(int position) {
+		this.position = position;
 	}
 	
 	

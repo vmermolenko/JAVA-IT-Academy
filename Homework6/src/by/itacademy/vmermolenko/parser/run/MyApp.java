@@ -69,7 +69,8 @@ public class MyApp {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String text = "В тексте письма Минобра, которое подписано первым заместителем министра образования Ириной Старовойтовой, говорится о поручении Совмина от 4 октября 2018 года № 05/209−440/11284р. В документе отмечается, что «наличие достаточно большого числа выпускников учреждений образования, распределенных (направленных на работу) и не приступивших к работе в соответствии с законодательством, свидетельствует о недостаточной работе учреждений образования с самими выпускниками и заказчиками кадров, а также о невыполнении в полном объеме заказа на подготовку кадров».\r\n" + 
-				"Читать полностью:  https://finance.tut.by/news615010.html";
+				"Читать полностью:  https://finance.tut.by/news615010.html."
+				+ "В тексте письма Минобра.";
 		
 		
 		
@@ -79,7 +80,12 @@ public class MyApp {
 		
 		String[] resultParagraph = text.split("\\r\\n");
 		
-		System.out.println(resultParagraph[0] + " \r\n " + resultParagraph[1]);
+		
+		for (int i = 0; i < resultParagraph.length; i++) {
+			System.out.println(resultParagraph[i]);
+			
+		}
+		
 		
 		
 		List<Paragraph> listParagraph  = new ArrayList<Paragraph>();
@@ -87,26 +93,32 @@ public class MyApp {
 			
 			String[] resultSentence = resultParagraph[i].split("\\.");
 			
+			/*
 			System.out.println("Предложения" + resultSentence.length);
 			System.out.println(resultParagraph[i]);
 			System.out.println();
-			
+			*/
 			
 			List<Sentence> listSentence = new ArrayList<Sentence>();
 			
 			for (int j = 0; j < resultSentence.length; j++) {
 				
+				//String[] resultWord = resultSentence[j].split("[,;:.!?\\\\s]+");
 				String[] resultWord = resultSentence[j].split(" ");
 				
+				
+				/*
 				System.out.println("Слова" + resultWord.length);
 				System.out.println(resultSentence[j]);
 				System.out.println();
+				*/
 				
 				List<Word> listWord = new ArrayList<Word>();
 				for (int k = 0; k < resultWord.length; k++) {
 					
 					char[] resultSymbol= resultWord[k].toCharArray();
-					System.out.println("resultSymbol " + resultSymbol.length);
+					//System.out.println("resultSymbol " + resultSymbol.length);
+					
 					List<Symbol> listSymbol = new ArrayList<Symbol>(); 
 					for (int l = 0; l < resultSymbol.length; l++) {
 			
@@ -136,6 +148,12 @@ public class MyApp {
 		
 		list.printListing();
 		
+		
+		int countSentence = list.countSentenceIdenticalWords();
+		
+		
+		
+		System.out.println("countSentenceIdenticalWords: " + countSentence);
 		
 		
 		

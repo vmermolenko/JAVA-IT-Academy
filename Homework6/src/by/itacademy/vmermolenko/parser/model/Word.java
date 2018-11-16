@@ -41,6 +41,16 @@ public class Word {
 		return result;
 	}
 	
+	public String getWord()
+	{
+		String result = "";
+		for (Symbol symbol : listSymbol) {
+			result += symbol.getShar();
+		}
+		
+		return result;
+	}
+	
 	
 
 }
