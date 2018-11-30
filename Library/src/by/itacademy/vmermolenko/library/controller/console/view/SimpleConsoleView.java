@@ -13,7 +13,8 @@ public class SimpleConsoleView {
 		System.out.println("1 - view books catalog");
 		System.out.println("2 - view single catalog row");
 		System.out.println("3 - find book by title");
-		System.out.println("4 - add books catalog");
+		System.out.println("4 - get list Author catalog");
+		System.out.println("5 - get Author by id");
 	}
 
 	// simulate user input
@@ -43,25 +44,31 @@ public class SimpleConsoleView {
 			break;
 
 		case 2:
-			// Scanner sc = new Scanner(System.in);
+			//Scanner sc = new Scanner(System.in);
+			//sc.nextInt();
 			userInput.put("user_action", "single_row");
-			userInput.put("row_humber", 2);
+			userInput.put("row_humber", 1);
 			break;
 		case 3:
 			userInput.put("user_action", "find_book");
-			userInput.put("book_title", "Book1");
+			userInput.put("book_title",  new Scanner(System.in).next());
 			break;
 		case 4:
-			// implement later
+			userInput.put("user_action", "find_author");
+			break;
+		case 5:
+			
+			userInput.put("user_action", "find_author_id");
+			userInput.put("author_id", new Scanner(System.in).nextInt());
 			break;
 		}
 	}
 
 	public static int readMenuItem() {
 		// readItem from console
-		
-
-		return 1;// 2,3,4
+		Scanner sc = new Scanner(System.in);
+		int read = sc.nextInt();
+		return read;// 2,3,4
 	}
 
 }

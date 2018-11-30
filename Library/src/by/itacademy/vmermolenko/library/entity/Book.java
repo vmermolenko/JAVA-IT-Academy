@@ -65,6 +65,12 @@ public class Book {
 			return false;
 		return true;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Book [id=" + id + ", title=" + title + "]";
+	}
 	
 	
 	

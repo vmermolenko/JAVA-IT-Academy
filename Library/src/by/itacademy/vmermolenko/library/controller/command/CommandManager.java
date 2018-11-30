@@ -16,10 +16,14 @@ public class CommandManager {
 			command = new ViewSingleCatalogRowCommand();
 			break;
 		case "find_book":
-			
+			command = new ViewBookByName();
 			break;
-
-
+		case "find_author":
+			command = new ViewAutorCatalogCommand();
+			break;
+		case "find_author_id":
+			command = new ViewAuthorByIdCommandImpl();
+			break;
 		}
 		
 		return command;

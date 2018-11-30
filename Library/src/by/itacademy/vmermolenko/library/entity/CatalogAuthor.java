@@ -4,38 +4,28 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Catalog  {
+public class CatalogAuthor {
 	
 	private String responsiblePerson;
 	private Date creationDate;
 	
-	private List<Book> books;
-	
-	public Catalog() {
-		books = new ArrayList<>();
+	List<Author> list;
+
+	public CatalogAuthor() {
 		
-		//DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		//Date date = new Date();
-		//System.out.println(dateFormat.format(date)); //2016/11/16 12:08:43
+		this.list = new ArrayList<>();
 	}
-
-	public Book searchByName(String title) {
-
-		for (Book book : books) {
-			
-			if (book.getTitle().equals(title)) {
-				return book;
+	
+	public Author getAuthor(int index)
+	{
+		for (Author author : list) {
+			if (author.id == index) {
+				return author;
 			}
 		}
-		
+
 		return null;
 	}
-	
-	public void setBooks(List<Book> books) {
-		this.books = books;
-	}
-
-
 
 	public String getResponsiblePerson() {
 		return responsiblePerson;
@@ -53,16 +43,20 @@ public class Catalog  {
 		this.creationDate = creationDate;
 	}
 
-	public List<Book> getBooks() {
-		return books;
+	public List<Author> getList() {
+		return list;
+	}
+
+	public void setList(List<Author> list) {
+		this.list = list;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((books == null) ? 0 : books.hashCode());
 		result = prime * result + ((creationDate == null) ? 0 : creationDate.hashCode());
+		result = prime * result + ((list == null) ? 0 : list.hashCode());
 		result = prime * result + ((responsiblePerson == null) ? 0 : responsiblePerson.hashCode());
 		return result;
 	}
@@ -75,16 +69,16 @@ public class Catalog  {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Catalog other = (Catalog) obj;
-		if (books == null) {
-			if (other.books != null)
-				return false;
-		} else if (!books.equals(other.books))
-			return false;
+		CatalogAuthor other = (CatalogAuthor) obj;
 		if (creationDate == null) {
 			if (other.creationDate != null)
 				return false;
 		} else if (!creationDate.equals(other.creationDate))
+			return false;
+		if (list == null) {
+			if (other.list != null)
+				return false;
+		} else if (!list.equals(other.list))
 			return false;
 		if (responsiblePerson == null) {
 			if (other.responsiblePerson != null)
@@ -96,20 +90,8 @@ public class Catalog  {
 
 	@Override
 	public String toString() {
-		return "Catalog [responsiblePerson=" + responsiblePerson + ", creationDate=" + creationDate + ", books=" + books
-				+ "]";
+		return "CatalogAuthor [responsiblePerson=" + responsiblePerson + ", creationDate=" + creationDate + ", list="
+				+ list + "]";
 	}
-
-
-
-	public Book getSingleRow(int row) {
-		// TODO Auto-generated method stub
-		if (books != null) {
-			return books.get(row);
-		}
-		return null;
-	}
-
-	
-	
+		
 }

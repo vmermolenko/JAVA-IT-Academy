@@ -8,22 +8,20 @@ import by.itacademy.vmermolenko.library.entity.Catalog;
 import by.itacademy.vmermolenko.library.service.CatalogService;
 import by.itacademy.vmermolenko.library.service.impl.RegularCatalogServiceImpl;
 
-public class ViewSingleCatalogRowCommand implements BasicCommand{
+public class ViewBookByName implements BasicCommand{
 
 	private CatalogService catalogService;
 	
 	@Override
-	//add params to method
 	public void perfomAction(Map<String, Object> params) {
+		
+		String title = (String) params.get("book_title");
 		// TODO Auto-generated method stub
-		
-		
 		catalogService = new RegularCatalogServiceImpl();
-		Catalog catalog = catalogService.listCatalog();
+		Book book = catalogService.listCatalog().searchByName(title);
 		
-		Book row = catalog.getSingleRow(2);
-		
-		System.out.println(row);
+		//move to other layer
+		System.out.println(book);
 	}
 
 }
