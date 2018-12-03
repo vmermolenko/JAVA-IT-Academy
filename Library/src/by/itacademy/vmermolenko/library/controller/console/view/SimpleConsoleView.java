@@ -3,6 +3,8 @@ package by.itacademy.vmermolenko.library.controller.console.view;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import static by.itacademy.vmermolenko.library.controller.util.ControllerConstantStrorage.*;
+
 
 public class SimpleConsoleView {
 
@@ -40,25 +42,25 @@ public class SimpleConsoleView {
 	public static void getInputData(int menuItem) {
 		switch (menuItem) {
 		case 1:
-			userInput.put("user_action", "view_catalog");
+			userInput.put(COMMAND_VALUE, COMMAND_CATALOG_VIEW);
 			break;
 
 		case 2:
 			//Scanner sc = new Scanner(System.in);
 			//sc.nextInt();
-			userInput.put("user_action", "single_row");
-			userInput.put("row_humber", 1);
+			userInput.put(COMMAND_VALUE, COMMAND_CATALOG_ROW);
+			userInput.put("book_row", new Scanner(System.in).nextInt());
 			break;
 		case 3:
-			userInput.put("user_action", "find_book");
+			userInput.put(COMMAND_VALUE, COMMAND_CATALOG_BOOK_ITEM);
 			userInput.put("book_title",  new Scanner(System.in).next());
 			break;
 		case 4:
-			userInput.put("user_action", "find_author");
+			userInput.put(COMMAND_VALUE, COMMAND_CATALOG_AUTHOR_ITEM);
 			break;
 		case 5:
 			
-			userInput.put("user_action", "find_author_id");
+			userInput.put(COMMAND_VALUE, COMMAND_CATALOG_AUTHOR_ID);
 			userInput.put("author_id", new Scanner(System.in).nextInt());
 			break;
 		}

@@ -94,13 +94,17 @@ public class Catalog  {
 		return true;
 	}
 
+
 	@Override
 	public String toString() {
-		return "Catalog [responsiblePerson=" + responsiblePerson + ", creationDate=" + creationDate + ", books=" + books
-				+ "]";
+
+		String res = "";
+		for (Book book : books) {
+			res += book.getId() + " " + book.getTitle() + "\n";
+		}
+		
+		return res;
 	}
-
-
 
 	public Book getSingleRow(int row) {
 		// TODO Auto-generated method stub

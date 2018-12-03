@@ -7,6 +7,7 @@ import by.itacademy.vmermolenko.library.entity.Book;
 import by.itacademy.vmermolenko.library.entity.Catalog;
 import by.itacademy.vmermolenko.library.service.CatalogService;
 import by.itacademy.vmermolenko.library.service.impl.RegularCatalogServiceImpl;
+import static by.itacademy.vmermolenko.library.controller.util.ControllerConstantStrorage.*;
 
 public class ViewSingleCatalogRowCommand implements BasicCommand{
 
@@ -21,7 +22,7 @@ public class ViewSingleCatalogRowCommand implements BasicCommand{
 		catalogService = new RegularCatalogServiceImpl();
 		Catalog catalog = catalogService.listCatalog();
 		
-		Book row = catalog.getSingleRow(2);
+		Book row = catalog.getSingleRow((int)params.get(BOOK_ROW));
 		
 		System.out.println(row);
 	}

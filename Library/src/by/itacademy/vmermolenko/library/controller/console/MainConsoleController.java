@@ -1,6 +1,7 @@
 package by.itacademy.vmermolenko.library.controller.console;
 
 import static by.itacademy.vmermolenko.library.controller.command.CommandManager.*;
+import static by.itacademy.vmermolenko.library.controller.util.ControllerConstantStrorage.*;
 import static by.itacademy.vmermolenko.library.controller.console.view.SimpleConsoleView.*;
 
 import java.util.Map;
@@ -15,7 +16,7 @@ public class MainConsoleController {
 
 		Map<String, Object> userData = readUserInput();
 		
-		Object userAction = userData.get("user_action");
+		Object userAction = userData.get(COMMAND_VALUE);
 		
 		BasicCommand command = defineCommand(convertString(userAction));
 		command.perfomAction(userData);

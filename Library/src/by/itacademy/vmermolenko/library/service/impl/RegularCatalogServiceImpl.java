@@ -7,6 +7,7 @@ import by.itacademy.vmermolenko.library.dao.AuthorDao;
 import by.itacademy.vmermolenko.library.dao.BookDao;
 import by.itacademy.vmermolenko.library.dao.collection.AuthorDaoCollectionImpl;
 import by.itacademy.vmermolenko.library.dao.collection.BookDaoCollectionImpl;
+import by.itacademy.vmermolenko.library.dao.sql.BookDaoSQLImpl;
 import by.itacademy.vmermolenko.library.entity.Author;
 import by.itacademy.vmermolenko.library.entity.Book;
 import by.itacademy.vmermolenko.library.entity.Catalog;
@@ -27,7 +28,8 @@ public class RegularCatalogServiceImpl implements CatalogService {
 		catalog.setCreationDate(new Date());
 
 		// bad solution? replace with Factory
-		bookDao = new BookDaoCollectionImpl();
+		//bookDao = new BookDaoCollectionImpl();
+		bookDao = new BookDaoSQLImpl();
 
 		List<Book> books = bookDao.getBooks();
 		catalog.setBooks(books);

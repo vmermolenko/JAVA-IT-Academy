@@ -16,9 +16,9 @@ public class ViewBookCatalogCommand implements BasicCommand{
 		// TODO Auto-generated method stub
 		catalogService = new RegularCatalogServiceImpl();
 		Catalog catalog = catalogService.listCatalog();
-		
+
 		//move to other layer
-		System.out.println(catalog);
+		System.out.println(catalog.toString());
 		
 	}
 
