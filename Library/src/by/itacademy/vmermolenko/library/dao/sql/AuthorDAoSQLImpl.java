@@ -8,34 +8,36 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
-
-import by.itacademy.vmermolenko.library.dao.BookDao;
+import by.itacademy.vmermolenko.library.dao.AuthorDao;
+import by.itacademy.vmermolenko.library.entity.Author;
 import by.itacademy.vmermolenko.library.entity.Book;
 
-public class BookDaoSQLImpl implements BookDao {
+public class AuthorDAoSQLImpl implements AuthorDao{
 
 	private static final String DB_URL = "jdbc:mysql://localhost:3306/library?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	private static final String DB_USER = "root";
 	private static final String DB_PASS = "1234";
-
+	
 	@Override
-	public List<Book> getBooks() {
-
-		List<Book> books = new ArrayList<>();
+	public List<Author> getAuthors() {
+		// TODO Auto-generated method stub
+		List<Author> authors = new ArrayList<>();
 
 		try (Connection con = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {
 
 			Statement st = con.createStatement();
-			ResultSet rs = st.executeQuery("select * from book");
+			ResultSet rs = st.executeQuery("select * from author");
 
 			while (rs.next()) {
 				int id = rs.getInt("id");
-				String title = rs.getString("title");
+				String name = rs.getString("name");
+				int day = rs.getInt("day");
+				int month = rs.getInt("month");
+				int year = rs.getInt("year");
 
-				Book book = new Book(id, title);
-				
-				books.add(book);
+				Author author = new Author(id, name, day, month, year);
+			
+				authors.add(author);
 
 				//System.out.println("id: " + id + ", title: " + title);
 				 
@@ -45,12 +47,13 @@ public class BookDaoSQLImpl implements BookDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return books;
+		return authors;
 	}
 
-	@Test
-	public void testConnect() {
-		getBooks();
+	@Override
+	public List<Author> getAuthorID() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

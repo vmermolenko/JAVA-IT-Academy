@@ -59,7 +59,6 @@ public class SimpleConsoleView {
 			userInput.put(COMMAND_VALUE, COMMAND_CATALOG_AUTHOR_ITEM);
 			break;
 		case 5:
-			
 			userInput.put(COMMAND_VALUE, COMMAND_CATALOG_AUTHOR_ID);
 			userInput.put("author_id", new Scanner(System.in).nextInt());
 			break;

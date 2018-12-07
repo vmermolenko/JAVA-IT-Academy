@@ -54,7 +54,7 @@ public class Catalog  {
 	}
 
 	public List<Book> getBooks() {
-		return books;
+		return this.books;
 	}
 
 	@Override
@@ -95,9 +95,10 @@ public class Catalog  {
 	}
 
 
-	@Override
-	public String toString() {
 
+	public String toString2() {
+
+		System.out.println("test toString");
 		String res = "";
 		for (Book book : books) {
 			res += book.getId() + " " + book.getTitle() + "\n";
@@ -105,6 +106,13 @@ public class Catalog  {
 		
 		return res;
 	}
+	
+	@Override
+	public String toString() {
+		return "Catalog [responsiblePerson=" + responsiblePerson + ", creationDate=" + creationDate + ", books=" + books
+				+ "]";
+	}
+	
 
 	public Book getSingleRow(int row) {
 		// TODO Auto-generated method stub
