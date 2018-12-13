@@ -11,6 +11,8 @@ public class CommandManager {
 			return new OneActionImpl();
 		case "2":
 			return new TwoActionImpl();
+		case "3":
+			return new ThreeActionImpl();
 		default:
 			return new DefaultActionImpl();
 		}

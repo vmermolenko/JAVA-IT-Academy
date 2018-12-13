@@ -28,19 +28,6 @@ public class MySecondServlet extends HttpServlet {
 		System.out.println("action: " + action);
 		System.out.println(req.getHeader("User-Agent"));
 
-		/*
-		switch (action) {
-		case "1":
-			resp.getWriter().println("<h1 style='color:green'>One</h1>");
-			break;
-		case "2":
-			resp.getWriter().println("<h1 style='color:blue'>Two</h1>");
-			break;
-		default:
-			resp.getWriter().println("<h1 style='color:red'>Incorrect action</h1>");
-			break;
-		}
-		*/
 		
 		if (action != null)	{
 			BasicAction basicAction = CommandManager.definedAction(action);
