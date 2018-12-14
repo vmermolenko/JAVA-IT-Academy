@@ -1,6 +1,7 @@
 package by.htp.web.command;
 
 import by.htp.web.command.impl.*;
+import static by.htp.library.utils.WebConstant.*;
 
 public class CommandManager {
 
@@ -13,6 +14,8 @@ public class CommandManager {
 			return new TwoActionImpl();
 		case "3":
 			return new ThreeActionImpl();
+		case REQ_PARAM_ADD_AUTHOR:
+			return new FourActionImpl();
 		default:
 			return new DefaultActionImpl();
 		}

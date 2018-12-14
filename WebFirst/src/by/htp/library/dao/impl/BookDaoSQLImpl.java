@@ -10,12 +10,9 @@ import java.util.List;
 
 import by.htp.library.dao.BookDao;
 import by.htp.library.entity.Book;
+import static by.htp.library.dao.utils.DaoConstant.*;
 
 public class BookDaoSQLImpl implements BookDao {
-
-	private static final String DB_URL = "jdbc:mysql://localhost:3306/library?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-	private static final String DB_USER = "root";
-	private static final String DB_PASS = "1234";
 
 	@Override
 	public List<Book> readAll() {

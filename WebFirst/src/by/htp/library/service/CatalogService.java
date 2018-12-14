@@ -8,4 +8,5 @@ import by.htp.library.entity.Book;
 public interface CatalogService {
 	List<Book> getCatalogBooks();
 	List<Author> getCatalogAuthor();
+	void addAuthorToCatalog(String name);
 }

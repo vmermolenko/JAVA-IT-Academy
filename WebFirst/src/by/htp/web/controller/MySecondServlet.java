@@ -20,17 +20,13 @@ public class MySecondServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//super.doPost(req, resp);
 		
+		
+		
+		
 		System.out.println("post");
 		//doGet(req, resp);
-		String action = req.getParameter("action");
-		System.out.println("action: " + action);
+		processRequest(req, resp);
 		
-
-
-		if (action != null)	{
-			BasicAction basicAction = CommandManager.definedAction(action);
-			basicAction.performAction(req, resp);
-		}
 	      
 	}
 
@@ -44,15 +40,8 @@ public class MySecondServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("doGet");
-		String action = req.getParameter("action");
-		System.out.println("action: " + action);
-		System.out.println(req.getHeader("User-Agent"));
-
+		processRequest(req, resp);
 		
-		if (action != null)	{
-			BasicAction basicAction = CommandManager.definedAction(action);
-			basicAction.performAction(req, resp);
-		}
 	}
 
 	@Override
@@ -74,6 +63,18 @@ public class MySecondServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		super.init();
 		System.out.println("init");
+	}
+	
+	private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException  {
+		String action = req.getParameter("action");
+		System.out.println("action: " + action);
+		System.out.println(req.getHeader("User-Agent"));
+
+		
+		if (action != null)	{
+			BasicAction basicAction = CommandManager.definedAction(action);
+			basicAction.performAction(req, resp);
+		}
 	}
 
 }

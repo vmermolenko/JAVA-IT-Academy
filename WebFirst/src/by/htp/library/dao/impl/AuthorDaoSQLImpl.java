@@ -8,14 +8,15 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.sql.PreparedStatement;
+
 import by.htp.library.dao.AuthorDao;
 import by.htp.library.entity.Author;
+import static by.htp.library.dao.utils.DaoConstant.*;
 
 public class AuthorDaoSQLImpl implements AuthorDao {
-	private static final String DB_URL = "jdbc:mysql://localhost:3306/library?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-	private static final String DB_USER = "root";
-	private static final String DB_PASS = "1234";
 
+	private static final String SQL_INSERT_AUTHOR = "INSERT INTO author (name) VALUES (?)";
 	@Override
 	public List<Author> readAll() {
 		// TODO Auto-generated method stub
@@ -53,6 +54,36 @@ public class AuthorDaoSQLImpl implements AuthorDao {
 		}
 
 		return authors;
+	}
+
+	@Override
+	public void add_author(Author author) {
+		// TODO Auto-generated method stub
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			try (Connection con = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {
+
+				System.out.println("insert into author (name) VALUES ('" + author.getName() + "')");
+				
+				PreparedStatement ps = con.prepareStatement(SQL_INSERT_AUTHOR, Statement.RETURN_GENERATED_KEYS);
+				ps.setString(1, author.getName());
+				ps.executeUpdate();
+				
+				long key = 0;
+				ResultSet rs = ps.getGeneratedKeys();
+				if (rs != null && rs.next()) {
+				    key = rs.getLong(1);
+				    System.out.println(key);
+				}
+				
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO: handle exception
+		}
 	}
 
 }

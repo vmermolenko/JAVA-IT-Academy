@@ -38,5 +38,12 @@ public class CatalogServiceImpl implements CatalogService {
 		// TODO Auto-generated method stub
 		return authorDao.readAll();
 	}
+	@Override
+	public void addAuthorToCatalog(String name) {
+		// TODO Auto-generated method stub
+		
+		Author author = new Author(name);
+		authorDao.add_author(author);
+	}
 
 }

@@ -6,4 +6,5 @@ import by.htp.library.entity.Author;
 
 public interface AuthorDao {
 	List<Author> readAll();
+	void add_author(Author author);
 }

@@ -11,6 +11,11 @@ public class Author {
 	public Author() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Author(String name) {
+		// TODO Auto-generated constructor stub
+		this.name = name;
+	}
 
 
 	public Author(int id, String name, int day, int month, int year) {
