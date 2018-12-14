@@ -1,6 +1,7 @@
 package by.htp.web.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +14,25 @@ import by.htp.web.command.CommandManager;
 
 @WebServlet("/MySecondServlet")
 public class MySecondServlet extends HttpServlet {
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//super.doPost(req, resp);
+		
+		System.out.println("post");
+		//doGet(req, resp);
+		String action = req.getParameter("action");
+		System.out.println("action: " + action);
+		
+
+
+		if (action != null)	{
+			BasicAction basicAction = CommandManager.definedAction(action);
+			basicAction.performAction(req, resp);
+		}
+	      
+	}
 
 	public MySecondServlet() {
 		super();

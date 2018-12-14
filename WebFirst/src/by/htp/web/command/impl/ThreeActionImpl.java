@@ -22,7 +22,40 @@ public class ThreeActionImpl implements BasicAction{
 
 		System.out.println("ThreeActionImpl");
 
-		resp.getWriter().println(authors);
+		
+		String tableHead = 
+		
+		"<table class=\"table\">\r\n" + 
+		"  <thead>\r\n" + 
+		"    <tr>\r\n" + 
+		"      <th scope=\"col\">id</th>\r\n" + 
+		"      <th scope=\"col\">Name</th>\r\n" + 
+		"      <th scope=\"col\">Birthday</th>\r\n" + 
+		"    </tr>\r\n" + 
+		"  </thead>\r\n" + 
+		"  <tbody>\r\n";
+		
+	
+
+		String tableFooter = "  </tbody>\r\n" + 
+		"</table>";
+		
+		
+		String rows = "";
+		for (Author author : authors) {
+			
+			rows += "    <tr>\r\n" + 
+					"      <th scope=\"row\">" + author.getId() + "</th>\r\n" + 
+					"      <td>"+ author.getName() + "</td>\r\n" + 
+					"      <td>"+ author.getDay() + "." + author.getMonth() + "." + author.getYear() + "</td>\r\n" + 
+					"    </tr>\r\n"; 
+			
+		}
+		
+		String result = tableHead + rows + tableFooter;
+		
+		
+		resp.getWriter().println(result);
 	}
 
 }
