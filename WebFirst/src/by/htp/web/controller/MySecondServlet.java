@@ -20,14 +20,9 @@ public class MySecondServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//super.doPost(req, resp);
 		
-		
-		
-		
 		System.out.println("post");
 		//doGet(req, resp);
-		processRequest(req, resp);
-		
-	      
+		processRequest(req, resp);  
 	}
 
 	public MySecondServlet() {
@@ -41,7 +36,6 @@ public class MySecondServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		System.out.println("doGet");
 		processRequest(req, resp);
-		
 	}
 
 	@Override
@@ -70,11 +64,9 @@ public class MySecondServlet extends HttpServlet {
 		System.out.println("action: " + action);
 		System.out.println(req.getHeader("User-Agent"));
 
-		
 		if (action != null)	{
 			BasicAction basicAction = CommandManager.definedAction(action);
 			basicAction.performAction(req, resp);
 		}
 	}
-
 }

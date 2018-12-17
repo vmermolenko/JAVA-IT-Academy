@@ -16,6 +16,10 @@ public class CommandManager {
 			return new ThreeActionImpl();
 		case REQ_PARAM_ADD_AUTHOR:
 			return new FourActionImpl();
+		case REQ_PARAM_DELETE_AUTHOR:
+			return new DeleteAuthorActionImpl();
+		case REQ_PARAM_UPDATE_AUTHOR:
+			return new UpdateAuthorActionImpl();
 		default:
 			return new DefaultActionImpl();
 		}

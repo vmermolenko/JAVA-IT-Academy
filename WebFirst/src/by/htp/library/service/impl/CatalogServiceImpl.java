@@ -2,6 +2,7 @@ package by.htp.library.service.impl;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.sql.Date;
 
 import by.htp.library.dao.AuthorDao;
 import by.htp.library.dao.BookDao;
@@ -39,11 +40,23 @@ public class CatalogServiceImpl implements CatalogService {
 		return authorDao.readAll();
 	}
 	@Override
-	public void addAuthorToCatalog(String name) {
+	public void addAuthorToCatalog(String name, Date birthday, String email) {
 		// TODO Auto-generated method stub
-		
-		Author author = new Author(name);
+		Author author = new Author(name, birthday, email);
 		authorDao.add_author(author);
+			
 	}
-
+	@Override
+	public void deleteAuthorFromCatalog(String id) {
+		// TODO Auto-generated method stub
+		Author author = new Author(Integer.parseInt(id)); 
+		authorDao.delete_author(author);
+	}
+	@Override
+	public void updateAuthorFromCatalog(String id, String name, String email) {
+		// TODO Auto-generated method stub
+		Author author = new Author(Integer.parseInt(id), name, email); 
+		authorDao.update_author(author);
+	}
+	
 }
