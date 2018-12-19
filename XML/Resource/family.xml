@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<families>
+
+	<family address="Sts Belarus Minsk №111">
+		<mother>
+			<name>Elena</name>
+			<surname>Ivanova</surname>
+			<age>30</age>
+		</mother>
+		
+		<father>
+			<name>Ivan</name>
+			<surname>Ivanov</surname>
+			<age>33</age>
+		</father>
+		<!--  
+		<children>
+			<child>
+				<name>Ivan</name>
+				<surname>Ivanov</surname>
+				<age>10</age>
+			</child>
+			<child>
+				<name></name>
+				<surname></surname>
+			</child>
+			<child>
+				<name></name>
+				<surname></surname>
+			</child>
+			<child>
+				<name></name>
+				<surname></surname>
+			</child>
+
+		</children>
+		
+		-->
+	</family>
+
+</families>
