@@ -8,6 +8,16 @@
 			<name>Elena</name>
 			<surname>Ivanova</surname>
 			<age>30</age>
+			<hobby>
+				<title>Dancing</title>
+				<times-per-week>2</times-per-week>
+				<schedule>
+					<day>monday</day>
+					<time>18:00</time>
+					<day>friday</day>
+					<time>18:00</time>
+				</schedule>
+			</hobby>
 		</mother>
 		
 		<father>
