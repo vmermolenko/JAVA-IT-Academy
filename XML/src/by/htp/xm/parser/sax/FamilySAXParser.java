@@ -9,6 +9,8 @@ import javax.xml.parsers.SAXParserFactory;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
+import by.htp.xm.parser.dom.RainStationDomParser;
+
 public class FamilySAXParser {
 
 	public static void main(String[] args) throws FamilyParserException {
@@ -19,6 +21,7 @@ public class FamilySAXParser {
 	private static void parseFamilyXML() throws FamilyParserException {
 		// TODO Auto-generated method stub
 		try {
+			
 			
 			SAXParserFactory parserFactory = SAXParserFactory.newInstance();
 			

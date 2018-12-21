@@ -15,6 +15,8 @@ public class FamilyDefaultHandler extends DefaultHandler {
 	private Father father;
 	private StringBuilder textValue;
 	
+	private String type;
+	
 	
 
 	

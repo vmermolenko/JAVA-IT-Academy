@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<families>
+<families xmlns="http://www.example.org/family_schema"
+		  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		  xsi:schemaLocation="http://www.example.org/family_schema family_schema.xsd">
 
 	<family address="Sts Belarus Minsk №111">
 		<mother>
@@ -13,7 +15,7 @@
 			<surname>Ivanov</surname>
 			<age>33</age>
 		</father>
-		<!--  
+	  
 		<children>
 			<child>
 				<name>Ivan</name>
@@ -23,19 +25,22 @@
 			<child>
 				<name></name>
 				<surname></surname>
+				<age>10</age>
 			</child>
 			<child>
 				<name></name>
 				<surname></surname>
+				<age>33</age>
 			</child>
 			<child>
 				<name></name>
 				<surname></surname>
+				<age>33</age>
 			</child>
 
 		</children>
 		
-		-->
+		
 	</family>
 
 </families>
