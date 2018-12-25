@@ -32,7 +32,7 @@ public class RainStationDomParser {
 			
 			Document document2 = db.parse(XML_FILE_PATH2);
 
-			List<Equipment> eq = parseDocument(document1);
+			//List<Equipment> eq = parseDocument(document1);
 			
 			parseDocumentSecond(document2);
 

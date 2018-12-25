@@ -25,6 +25,22 @@
 			<xs:element name="name" type="xs:string"/>
 			<xs:element name="surname" type="xs:string"/>
 			<xs:element name="age" type="xs:int"/>
+			<xs:element name="hobby">
+				<xs:complexType>
+				   <xs:sequence>
+				      <xs:element name="title" type="xs:string"/>
+				      <xs:element name="times-per-week" type="xs:string"/>
+				      <xs:element name="schedule">
+				      	  <xs:complexType>
+						      <xs:sequence  maxOccurs="unbounded" minOccurs="2">
+						   		  <xs:element name="day" type="xs:string"/>
+						   		  <xs:element name="time" type="xs:string"/>
+						      </xs:sequence>
+						  </xs:complexType>
+				      </xs:element>
+				   </xs:sequence>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	
