@@ -3,6 +3,7 @@ package by.htp.web.command.impl;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -20,6 +21,17 @@ public class ThreeActionImpl implements BasicAction{
 		// TODO Auto-generated method stub
 		List<Author> authors = catalogService.getCatalogAuthor();
 
+		
+		req.setAttribute("lst", authors);
+		try {
+			req.getRequestDispatcher("BaseAuthor.jsp").forward(req,resp);
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		/*
+		
 		System.out.println("ThreeActionImpl");
 
 		
@@ -165,6 +177,8 @@ public class ThreeActionImpl implements BasicAction{
 		
 		
 		resp.getWriter().println(template);
+		
+		*/
 	}
 
 }
