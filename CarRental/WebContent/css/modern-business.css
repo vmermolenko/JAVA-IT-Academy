@@ -27,3 +27,8 @@ body {
 .portfolio-item {
   margin-bottom: 30px;
 }
+
+.life {
+    font-size: 26px;
+    color: red;
+}
