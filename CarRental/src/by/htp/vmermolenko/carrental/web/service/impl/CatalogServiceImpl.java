@@ -15,5 +15,24 @@ public class CatalogServiceImpl implements CatalogService {
 		// TODO Auto-generated method stub
 		return autoDao.readAll();
 	}
-	
+
+	@Override
+	public Auto getCatalogAuto(int id) {
+		// TODO Auto-generated method stub
+		List<Auto> listAuto = autoDao.readAll();
+		
+		for (Auto itemAuto : listAuto) {
+			if (itemAuto.getId() == id) 
+			{
+				return itemAuto;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public void registerOrderToCatalog(String id_car, String fio, String phone, String email, String comments) {
+		// TODO Auto-generated method stub
+		autoDao.registerOrder(id_car, fio, phone, email, comments);
+	}
 }

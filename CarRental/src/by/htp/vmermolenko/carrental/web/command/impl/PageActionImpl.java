@@ -7,21 +7,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import by.htp.vmermolenko.carrental.web.command.BasicAction;
+import by.htp.vmermolenko.carrental.web.entity.Auto;
+import by.htp.vmermolenko.carrental.web.service.CatalogService;
+import by.htp.vmermolenko.carrental.web.service.impl.CatalogServiceImpl;
 
 public class PageActionImpl implements BasicAction {
 
+	CatalogService catalogService = new CatalogServiceImpl();
 	@Override
 	public void performAction(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		// TODO Auto-generated method stub
 
-		String pages = req.getParameter("pages");
+		int id = Integer.parseInt(req.getParameter("pages"));
 		
-		System.out.println("pages" + pages);
+		Auto auto = catalogService.getCatalogAuto(id);
 		
-		//pages = "";
-		
-		if (pages.equals("1"))
+		if (auto != null)
 		{
+			req.setAttribute("item", auto);
 			System.out.println("item");
 			try {
 				req.getRequestDispatcher("/WEB-INF/pages/item.jsp").forward(req, resp);

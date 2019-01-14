@@ -5,7 +5,7 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
@@ -84,22 +84,22 @@
           <!-- Slide One - Set the background image for this slide in the line below -->
           <div class="carousel-item active" style="background-image: url('https://stmed.net/sites/default/files/ferrari-california-wallpapers-32104-9067248.jpg')">
             <div class="carousel-caption d-none d-md-block">
-              <h3>First Slide</h3>
-              <p>This is a description for the first slide.</p>
+              <h3>Ferrari</h3>
+              <p>Ferrari — спортивные автомобили</p>
             </div>
           </div>
           <!-- Slide Two - Set the background image for this slide in the line below -->
           <div class="carousel-item" style="background-image: url('https://www.acedrive.sg/wp-content/uploads/2012/11/car-rental-rates-singapore.jpg')">
             <div class="carousel-caption d-none d-md-block">
-              <h3>Second Slide</h3>
-              <p>This is a description for the second slide.</p>
+              <h3>Porsche</h3>
+              <p>В 2010 году автомобили Porsche были признаны самыми надёжными в мире</p>
             </div>
           </div>
           <!-- Slide Three - Set the background image for this slide in the line below http://placehold.it/1900x1080 -->
           <div class="carousel-item" style="background-image: url('https://cdn.motor1.com/images/mgl/2x0qM/s1/turquoise-chrome-lamborghini-urus.jpg')">
             <div class="carousel-caption d-none d-md-block">
-              <h3>Third Slide</h3>
-              <p>This is a description for the third slide.</p>
+              <h3>Lamborghini Urus</h3>
+              <p>Lamborghini Urus, первый в мире Super Sport Utility Vehicle – суперспортивный внедорожник</p>
             </div>
           </div>
         </div>
@@ -116,39 +116,39 @@
 
     <div class="container">
 
-      <h1 class="my-4">Welcome to Modern Business</h1>
+     <h1 class="my-4">Welcome to Modern Business</h1>
 
-      <!-- Portfolio Section -->
-      <h2>Автопарк</h2>
+     <!-- Portfolio Section -->
+     <h2>Автопарк</h2>
 
-      <div class="row">
+     <div class="row">
       
 
 	<c:forEach var="elem" items="${lst}" varStatus="status">
 	    <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="<c:out value="${ elem.url }" />"></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="#"><c:out value="${ elem.marka }" /></a>
-              </h4>
-              <p class="card-text">Год выпуска - <c:out value="${ elem.year }" /></p>
+	         <div class="card h-100">
+	           <a href="MainServlet?action=single&pages=<c:out value="${ elem.id }" />"><img class="card-img-top" src="<c:out value="${ elem.url }" />"></a>
+	           <div class="card-body">
+	             <h4 class="card-title">
+	               <a href="MainServlet?action=single&pages=<c:out value="${ elem.id }" />"><c:out value="${ elem.marka }" /></a>
+	             </h4>
+	             <p class="card-text">Год выпуска - <c:out value="${ elem.year }" /></p>
 			  <p class="card-text">Тип КПП: <c:out value="${ elem.transmission }" /></p>
 			  <p class="card-text">Тип топлива: <c:out value="${ elem.fuel }" /></p>
-			  <p>От&nbsp;<span class="life"><c:out value="${ elem.price }" />$/55 руб</span>&nbsp;в сутки</p>
-            </div>
-            <div class="card-footer">
-              <a href="MainServlet?action=single&pages=<c:out value="${ elem.id }" />" class="btn btn-primary">Заказать</a>
-            </div>
-          </div>
-        </div>
+			  <p>От&nbsp;<span class="life"><c:out value="${ elem.price }" />$/<c:out value="${ elem.price*2 }" /> руб</span>&nbsp;в сутки</p>
+	           </div>
+	           <div class="card-footer">
+	             <a href="MainServlet?action=single&pages=<c:out value="${ elem.id }" />" class="btn btn-primary">Заказать</a>
+	           </div>
+	         </div>
+	       </div>
 	 </c:forEach>
 
 
 
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://777-77-77.by/cms/images/2018/11/viber-image-e1542377439385.jpg" alt=""></a>
+            <a href="#"><img class="card-img-top" src="http://3-photos7.motorcar.com/used-2013-lamborghini-gallardo-2013lamborghinigallardolp5502withonly34771miles-13253-16906214-2-1024.jpg" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
                 <a href="#">Ford Fusion</a>

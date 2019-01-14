@@ -5,7 +5,7 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
@@ -15,15 +15,11 @@
     <title>Item</title>
   </head>
   <body>
-  <h1>Pages</h1>
-${request.param1}
-
-<h1>${pageContext.request.contextPath}</h1>
 
  <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="index.jsp">Car Rental</a>
+        <a class="navbar-brand" href="index.jsp">Прокат автомобилей</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -82,21 +78,21 @@ ${request.param1}
     <div class="container">
 
       <!-- Page Heading/Breadcrumbs -->
-      <h1 class="mt-4 mb-3">Ford Fusion
+      <h1 class="mt-4 mb-3">${item.marka}
       </h1>
 
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="index.html">Home</a>
+          <a href="index.jsp">Главная</a>
         </li>
-        <li class="breadcrumb-item active">Portfolio Item</li>
+        <li class="breadcrumb-item active">${item.marka}</li>
       </ol>
 
       <!-- Portfolio Item Row -->
       <div class="row">
 
         <div class="col-md-6">
-          <img class="img-fluid" src="http://777-77-77.by/cms/images/2018/11/viber-image-e1542377439385.jpg" alt="">
+          <img class="img-fluid" src="${item.url}" alt="">
          
         <br/>
          <br/>
@@ -106,30 +102,32 @@ ${request.param1}
 	      <div class="row">
 	        <div class="col-lg-12 mb-4">
 	          <h3>Форма заказа</h3>
-	          <form name="sentMessage" id="contactForm" novalidate>
+	          <form name="sentMessage" id="contactForm" novalidate action = "MainServlet" method = "POST">
+	           <input type="hidden" name="action" value="setorder">
+	           <input type="hidden" name="id_car" value="${item.id}">
 	            <div class="control-group form-group">
 	              <div class="controls">
 	                <label for="name">ФИО:</label>
-	                <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
+	                <input type="text" class="form-control" name="fio" id="fio" required data-validation-required-message="Please enter your name.">
 	                <p class="help-block"></p>
 	              </div>
 	            </div>
 	            <div class="control-group form-group">
 	              <div class="controls">
 	                <label>Номер телефона:</label>
-	                <input type="tel" class="form-control" id="phone" required data-validation-required-message="Please enter your phone number.">
+	                <input type="tel" class="form-control" name="phone" id="phone" required data-validation-required-message="Please enter your phone number.">
 	              </div>
 	            </div>
 	            <div class="control-group form-group">
 	              <div class="controls">
 	                <label>Электронная почта:</label>
-	                <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+	                <input type="email" class="form-control" name="email" id="email" required data-validation-required-message="Please enter your email address.">
 	              </div>
 	            </div>
 	            <div class="control-group form-group">
 	              <div class="controls">
 	                <label>Комментарии:</label>
-	                <textarea rows="5" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+	                <textarea rows="5" cols="100" class="form-control" name="comments" id="comments" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
 	              </div>
 	            </div>
 	            <div id="success"></div>
@@ -147,36 +145,21 @@ ${request.param1}
          
           <h3 class="my-3">Цена</h3>
           <ul>
-            <li><p>1 сутки &nbsp;<span class="life">25$/55 руб</span></p></li>
+            <li><p>1 сутки &nbsp;<span class="life">${item.price}$/${item.price*2} руб</span></p></li>
 
           </ul>
          
          
           <h3 class="my-3">Технические характеристики</h3>
           <ul>
-            <li>Год выпуска - 2015</li>
-            <li>Тип КПП: Автоматическая</li>
-            <li>Тип топлива: Бензин</li>
+            <li>Год выпуска - ${item.year}</li>
+            <li>Тип КПП: ${item.transmission}</li>
+            <li>Тип топлива: ${item.fuel}</li>
           </ul>
           
           
           <h3 class="my-3">Описание</h3>
-          <p>Автомобиль Ford Fusion второго поколения – это надежность, стиль, комфорт и впечатляющая отделка салона.
-
-			Легкая претензия на агрессивность в облике авто удачно сочетается с ощущением солидности и стремительности.
-			
-			Для водителей с небогатым опытом приятным дополнением будет простота в управлении и наличие «умной» бортовой электроники, облегчающей вождение.
-			
-			Причин выбрать для проката Ford Fusion множество, вот лишь некоторые из них:
-			
-			Отличный баланс между мощностью и экономичностью;
-			Идеальная управляемость;
-			6-ступенчатая автоматическая трансмиссия;
-			Анатомические сиденья, высокое качество материалов салона;
-			Безупречные параметры активной и пассивной безопасности;
-			Управление климатом, круиз-контроль;
-			Просторное багажное отделение;
-			Акустическая система уровня премиум.
+          <p>${item.description}
 			</p>
         </div>
         
