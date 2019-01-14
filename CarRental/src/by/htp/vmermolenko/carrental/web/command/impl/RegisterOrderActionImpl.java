@@ -18,7 +18,7 @@ public class RegisterOrderActionImpl implements BasicAction {
 		// TODO Auto-generated method stub
 		
 		
-		req.setCharacterEncoding("UTF-8");
+
 		String id_car = req.getParameter("id_car");
 		String fio = req.getParameter("fio");
 		String phone = req.getParameter("phone");
