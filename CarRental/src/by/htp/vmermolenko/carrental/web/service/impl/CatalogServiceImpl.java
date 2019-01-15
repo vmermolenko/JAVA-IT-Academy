@@ -31,8 +31,8 @@ public class CatalogServiceImpl implements CatalogService {
 	}
 
 	@Override
-	public void registerOrderToCatalog(String id_car, String fio, String phone, String email, String comments) {
+	public void registerOrderToCatalog(String id_car, String day, String fio, String passport, String phone, String email, String comments) {
 		// TODO Auto-generated method stub
-		autoDao.registerOrder(id_car, fio, phone, email, comments);
+		autoDao.registerOrder(id_car, day, fio, passport, phone, email, comments);
 	}
 }

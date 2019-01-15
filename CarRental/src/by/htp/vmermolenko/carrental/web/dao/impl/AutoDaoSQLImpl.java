@@ -87,8 +87,8 @@ public class AutoDaoSQLImpl implements AutoDao {
 	}
 
 	@Override
-	public void registerOrder(String id_car, String fio, String phone, String email, String comments) {
+	public void registerOrder(String id_car, String day, String fio, String passport, String phone, String email, String comments) {
 		// TODO Auto-generated method stub
-		System.out.println("registerOrder " + id_car + fio + phone + email + comments);
+		System.out.println("registerOrder " + id_car + day + fio + passport + phone + email + comments);
 	}
 }

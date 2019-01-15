@@ -9,5 +9,5 @@ public interface CatalogService {
 	public List<Auto> getCatalogAuto();
 	public Auto getCatalogAuto(int id);
 	
-	void registerOrderToCatalog(String id_car, String fio, String phone, String email, String comments);
+	void registerOrderToCatalog(String id_car, String day, String fio, String passport, String phone, String email, String comments);
 }

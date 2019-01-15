@@ -105,6 +105,26 @@
 	          <form name="sentMessage" id="contactForm" novalidate action = "MainServlet" method = "POST">
 	           <input type="hidden" name="action" value="setorder">
 	           <input type="hidden" name="id_car" value="${item.id}">
+	           <div class="control-group form-group">
+	              <div class="controls">
+	                <label>Количество дней аренды:</label>
+	                
+					<select class="custom-select" name="day" id="day"  aria-label="Example select with button addon">
+					  <option value="1">1 Сутки</option>
+					  <option value="2">2 Суток</option>
+					  <option value="3">3 Суток</option>
+					  <option value="4">4 Суток</option>
+					  <option value="5">5 Суток</option>
+					  <option value="6">6 Суток</option>
+					  <option value="7">7 Суток</option>
+					  <option value="8">8 Суток</option>
+					  <option value="9">9 Суток</option>
+					  <option value="10">10 Суток</option>
+					</select>
+	                  
+	                <!-- input type="tel" class="form-control" name="day" id="day" required data-validation-required-message="Please enter count day" -->
+	              </div>
+	            </div>
 	            <div class="control-group form-group">
 	              <div class="controls">
 	                <label for="name">ФИО:</label>
@@ -116,6 +136,12 @@
 	              <div class="controls">
 	                <label>Номер телефона:</label>
 	                <input type="tel" class="form-control" name="phone" id="phone" required data-validation-required-message="Please enter your phone number.">
+	              </div>
+	            </div>
+	            <div class="control-group form-group">
+	              <div class="controls">
+	                <label>Серия и номер паспорта:</label>
+	                <input type="text" class="form-control" name="passport" id="passport" required data-validation-required-message="Please enter your passport.">
 	              </div>
 	            </div>
 	            <div class="control-group form-group">

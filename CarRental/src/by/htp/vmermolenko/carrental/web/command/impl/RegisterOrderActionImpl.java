@@ -18,19 +18,21 @@ public class RegisterOrderActionImpl implements BasicAction {
 		// TODO Auto-generated method stub
 		
 		
-
+		
 		String id_car = req.getParameter("id_car");
+		String day = req.getParameter("day");;
 		String fio = req.getParameter("fio");
+		String passport = req.getParameter("passport");
 		String phone = req.getParameter("phone");
 		String email = req.getParameter("email");
 		String comments = req.getParameter("comments");
 		
-		System.out.println("registerOrder " + id_car + fio + phone + email + comments);
+		System.out.println("registerOrder " + id_car + day + fio + passport + phone + email + comments);
 		
-		catalogService.registerOrderToCatalog(id_car, fio, phone, email, comments);
+		catalogService.registerOrderToCatalog(id_car, day,  fio, passport, phone, email, comments);
 		
 		try {
-			req.getRequestDispatcher("index.jsp").forward(req, resp);
+			req.getRequestDispatcher("/WEB-INF/pages/succesfully.jsp").forward(req, resp);
 		} catch (ServletException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

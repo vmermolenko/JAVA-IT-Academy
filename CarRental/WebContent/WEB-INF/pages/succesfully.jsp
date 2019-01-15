@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<h1>Ваща заявка принята</h1>
+<a href="index.jsp">На главную</a>
 
 
 </body>
