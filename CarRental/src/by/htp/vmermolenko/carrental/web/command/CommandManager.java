@@ -1,8 +1,6 @@
 package by.htp.vmermolenko.carrental.web.command;
 
-import by.htp.vmermolenko.carrental.web.command.impl.DefaultActionImpl;
-import by.htp.vmermolenko.carrental.web.command.impl.PageActionImpl;
-import by.htp.vmermolenko.carrental.web.command.impl.RegisterOrderActionImpl;
+import by.htp.vmermolenko.carrental.web.command.impl.*;
 
 public class CommandManager {
 	public static BasicAction definedAction(String action) {
@@ -13,6 +11,12 @@ public class CommandManager {
 			return new PageActionImpl();
 		case "setorder":
 			return new RegisterOrderActionImpl();
+		case "enter":
+			return new LoginActionImpl();
+		case "login":
+			return new LoginActionImpl();
+		case "register":
+			return new LoginActionImpl();
 		default:
 			return new DefaultActionImpl();
 		}

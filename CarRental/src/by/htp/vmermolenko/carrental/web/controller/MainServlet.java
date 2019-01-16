@@ -50,6 +50,7 @@ public class MainServlet extends HttpServlet{
 		
 
 		String action = request.getParameter("action");
+		System.out.println("action=" + action);
 		//action = "default";
 		if (action != null)	{
 			BasicAction basicAction = CommandManager.definedAction(action);
