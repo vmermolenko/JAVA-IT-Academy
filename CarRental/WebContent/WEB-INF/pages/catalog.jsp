@@ -98,10 +98,10 @@
               <a class="nav-link" href="services.html">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
+              <a class="nav-link" href="MainServlet?action=login">Вход</a>
             </li>
              <li class="nav-item">
-              <a class="nav-link" href="MainServlet?action=enter">Войти</a>
+              <a class="nav-link" href="MainServlet?action=registration">Регистрация</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

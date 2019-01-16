@@ -12,11 +12,11 @@ public class CommandManager {
 		case "setorder":
 			return new RegisterOrderActionImpl();
 		case "enter":
-			return new LoginActionImpl();
+			return new EnterActionImpl();
 		case "login":
 			return new LoginActionImpl();
-		case "register":
-			return new LoginActionImpl();
+		case "registration":
+			return new RegisterActionImpl();
 		default:
 			return new DefaultActionImpl();
 		}
