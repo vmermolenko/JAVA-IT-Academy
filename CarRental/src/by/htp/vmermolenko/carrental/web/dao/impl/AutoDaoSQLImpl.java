@@ -159,4 +159,26 @@ public class AutoDaoSQLImpl implements AutoDao {
 		// TODO Auto-generated method stub
 		System.out.println("registerOrder " + id_car + day + fio + passport + phone + email + comments);
 	}
+
+	@Override
+	public void insertCar(String marka, String year, String transmission, String fuel, String price, String description,
+			String url) {
+		// TODO Auto-generated method stub
+		System.out.println("insertCar " + marka + year + transmission + fuel + price + description + url);
+		
+	}
+
+	@Override
+	public void updateCar(String id, String marka, String year, String transmission, String fuel, String price,
+			String description, String url) {
+		// TODO Auto-generated method stub
+		System.out.println("updateCar " + id + marka + year + transmission + fuel + price + description + url);
+	}
+
+	@Override
+	public void deleteCar(String id) {
+		// TODO Auto-generated method stub
+		System.out.println("deleteCar " + id );
+		
+	}
 }

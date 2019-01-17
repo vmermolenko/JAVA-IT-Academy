@@ -24,7 +24,7 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>
+      <a class="navbar-brand mr-1" href="index.jsp">Start Bootstrap</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -137,7 +137,11 @@
           <div class="card mb-3">
             <div class="card-header">
               <i class="fas fa-table"></i>
-              Cars Table</div>
+              Cars Table
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#insertModal">
+				New car
+			  </button>
+            </div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -151,7 +155,7 @@
                       <th>price</th>
                       <th>description</th>
                       <th>image</th>
-                      <td>action</td>
+                      <th>action</th>
                       
                     </tr>
                   </thead>
@@ -165,7 +169,7 @@
                       <th>price</th>
                       <th>description</th>
                       <th>image</th>
-                      <td>action</td>
+                      <th>action</th>
                     </tr>
                   </tfoot>
                   <tbody>
@@ -180,8 +184,7 @@
 	                      <td>${ elem.price }</td>
 	                      <td>${ elem.description }</td>
 	                      <td><img height="100" src="<c:out value="${ elem.url }" />"></td>
-	                      <td>${ elem.id } 
-	                      
+	                      <td>
 	                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModal" 
 			                      data-id="${ elem.id }"
 			                      data-marka="${ elem.marka }"
@@ -193,17 +196,15 @@
 			                      data-url="${ elem.url }">
 							  Update
 						  </button>
-			                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal" data-id="${ elem.id }">
+			              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal" data-id="${ elem.id }">
 							  Delete
-							</button>
-	                      
-	                      
+						  </button>
+
 	                      </td>
 	                    </tr>
 	                  
 	                  </c:forEach>
-
-                  </tbody>
+                 </tbody>
                 </table>
               </div>
             </div>
@@ -341,16 +342,15 @@
 	
 	
 	<!-- insertModal -->
-	<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+	<div class="modal fade" id="insertModal" tabindex="-1" role="dialog" aria-labelledby="insertModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	     <form name="sentMessage" id="contactForm" action = "MainServlet" method = "POST">
      			<input type="hidden" name="action" value="admin">
 	         	<input type="hidden" name="operation" value="insert">
-	            <input type="hidden" name="id_car" id="id_car" value="">
 
 		      <div class="modal-header">
-		        <h5 class="modal-title" id="updateModalLabel">Редактирование </h5>
+		        <h5 class="modal-title" id="updateModalLabel">New car </h5>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          <span aria-hidden="true">&times;</span>
 		        </button>
@@ -358,31 +358,31 @@
 		      <div class="modal-body">
 		         <div class="form-group">
 		            <label for="modal_marka" class="col-form-label">Car marka:</label>
-		            <input type="text"  class="form-control" id="modal_marka" name="modal_marka">
+		            <input type="text"  class="form-control" id="modal_marka" name="modal_marka" placeholder="Ferrari">
 		         </div>
 		         <div class="form-group">
 		            <label for="modal_year" class="col-form-label">Car year:</label>
-		            <input type="text"  class="form-control" id="modal_year" name="modal_year">
+		            <input type="text"  class="form-control" id="modal_year" name="modal_year" placeholder="2018">
 		         </div>
 		         <div class="form-group">
 		            <label for="modal_transmission" class="col-form-label">Car transmission:</label>
-		            <input type="text"  class="form-control" id="modal_transmission" name="modal_transmission">
+		            <input type="text"  class="form-control" id="modal_transmission" name="modal_transmission" placeholder="Автоматическая">
 		         </div>
 		         <div class="form-group">
 		            <label for="modal_fuel" class="col-form-label">Car fuel:</label>
-		            <input type="text"  class="form-control" id="modal_fuel" name="modal_fuel">
+		            <input type="text"  class="form-control" id="modal_fuel" name="modal_fuel" placeholder="Бензин">
 		         </div>
 		         <div class="form-group">
 		            <label for="modal_price" class="col-form-label">Car price:</label>
-		            <input type="text"  class="form-control" id="modal_price" name="modal_price">
+		            <input type="text"  class="form-control" id="modal_price" name="modal_price" placeholder="40">
 		         </div>
 		         <div class="form-group">
 		            <label for="modal_description" class="col-form-label">Car description:</label>
-		            <input type="textarea"  class="form-control" id="modal_description" name="modal_description">
+		            <input type="textarea"  class="form-control" id="modal_description" name="modal_description" placeholder="Легкая претензия на агрессивность в облике авто удачно сочетается с ощущением солидности и стремительности.">
 		         </div>
 		         <div class="form-group">
 		            <label for="modal_url" class="col-form-label">Car url:</label>
-		            <input type="text"  class="form-control" id="modal_url" name="modal_url">
+		            <input type="text"  class="form-control" id="modal_url" name="modal_url" placeholder="https://mydriftfun.com/wp-content/uploads/2017/07/20-Interesting-Facts-about-Ferrari.jpg">
 		         </div>
 		      </div>
 		      <div class="modal-footer">
@@ -419,7 +419,7 @@
 		  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
 		  var modal = $(this)
 		  modal.find('.modal-title').text('Update cars №' + recipient)
-		  //modal.find('.modal-body').text('Do you want delete car №' + recipient)
+		  modal.find('.modal-body').text('Do you want delete car №' + recipient)
 		  modal.find('#id_car').val(recipient)
 		})
 				

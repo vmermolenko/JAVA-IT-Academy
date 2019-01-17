@@ -35,4 +35,24 @@ public class CatalogServiceImpl implements CatalogService {
 		// TODO Auto-generated method stub
 		autoDao.registerOrder(id_car, day, fio, passport, phone, email, comments);
 	}
+
+	@Override
+	public void insertCar(String marka, String year, String transmission, String fuel, String price, String description,
+			String url) {
+		// TODO Auto-generated method stub
+		autoDao.insertCar(marka, year, transmission, fuel, price, description, url);
+	}
+
+	@Override
+	public void updateCar(String id, String marka, String year, String transmission, String fuel, String price,
+			String description, String url) {
+		// TODO Auto-generated method stub
+		autoDao.updateCar(id, marka, year, transmission, fuel, price, description, url);
+	}
+
+	@Override
+	public void deleteCar(String id) {
+		// TODO Auto-generated method stub
+		autoDao.deleteCar(id);
+	}
 }
