@@ -17,6 +17,8 @@ public class CommandManager {
 			return new LoginActionImpl();
 		case "registration":
 			return new RegisterActionImpl();
+		case "admin":
+			return new AdminPanelActionImpl();
 		default:
 			return new DefaultActionImpl();
 		}
