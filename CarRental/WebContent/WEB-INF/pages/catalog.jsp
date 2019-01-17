@@ -98,6 +98,9 @@
               <a class="nav-link" href="services.html">Services</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="MainServlet?action=admin">Admin</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="MainServlet?action=login">Вход</a>
             </li>
              <li class="nav-item">

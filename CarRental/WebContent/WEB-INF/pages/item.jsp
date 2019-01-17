@@ -102,7 +102,7 @@
 	      <div class="row">
 	        <div class="col-lg-12 mb-4">
 	          <h3>Форма заказа</h3>
-	          <form name="sentMessage" id="contactForm" novalidate action = "MainServlet" method = "POST">
+	          <form name="sentMessage" id="contactForm" action = "MainServlet" method = "POST">
 	           <input type="hidden" name="action" value="setorder">
 	           <input type="hidden" name="id_car" value="${item.id}">
 	           <div class="control-group form-group">
@@ -148,6 +148,12 @@
 	              <div class="controls">
 	                <label>Электронная почта:</label>
 	                <input type="email" class="form-control" name="email" id="email" required data-validation-required-message="Please enter your email address.">
+	              </div>
+	            </div>
+	            <div class="control-group form-group">
+	              <div class="controls">
+	                <label>Создайте пароль :</label>
+	                <input type="password" class="form-control" name="password" id="password" required data-validation-required-message="Please enter your email address.">
 	              </div>
 	            </div>
 	            <div class="control-group form-group">

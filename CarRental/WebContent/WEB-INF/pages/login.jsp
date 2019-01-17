@@ -169,7 +169,7 @@
     </nav>
 
 <div class="signup-form">
-    <form action="/examples/actions/confirmation.php" method="post">
+    <form action="MainServlet?action=manager" method="post">
 		<h2>Вход</h2>
 		
         <div class="form-group">
@@ -186,6 +186,7 @@
         </div>
     </form>
 	<div class="text-center">Нет аккаунта? <a href="MainServlet?action=registration">Регистрация</a></div>
+	<div class="text-center">Забыли пароль? <a href="MainServlet?action=sendpassword">Выслать на почту</a></div>
 </div>
 
   
