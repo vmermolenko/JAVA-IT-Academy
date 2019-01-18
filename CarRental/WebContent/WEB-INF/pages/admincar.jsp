@@ -7,7 +7,10 @@
 <meta charset="UTF-8">
 <title>AdminOrder</title>
  <!-- Bootstrap core CSS-->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" -->
+     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -115,7 +118,7 @@
             <span>Charts</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="tables.html">
+          <a class="nav-link" href="MainServlet?action=admin">
             <i class="fas fa-fw fa-table"></i>
             <span>Cars</span></a>
         </li>
@@ -139,7 +142,7 @@
               <i class="fas fa-table"></i>
               Cars Table
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#insertModal">
-				New car
+				Insert new car
 			  </button>
             </div>
             <div class="card-body">
@@ -185,7 +188,7 @@
 	                      <td>${ elem.description }</td>
 	                      <td><img height="100" src="<c:out value="${ elem.url }" />"></td>
 	                      <td>
-	                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModal" 
+	                      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#updateModal" 
 			                      data-id="${ elem.id }"
 			                      data-marka="${ elem.marka }"
 			                      data-year="${ elem.year }"
@@ -196,7 +199,7 @@
 			                      data-url="${ elem.url }">
 							  Update
 						  </button>
-			              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal" data-id="${ elem.id }">
+			              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-id="${ elem.id }">
 							  Delete
 						  </button>
 
@@ -278,7 +281,7 @@
 	         	<input type="hidden" name="action" value="admin">
 	         	<input type="hidden" name="operation" value="delete">
 	            <input type="hidden" id="id_car" name="id_car" value="">
-	         <button type="submit" class="btn btn-primary" id="sendMessageButton">Delete</button>
+	         <button type="submit" class="btn btn-danger" id="sendMessageButton">Delete</button>
 	        </form>
 	      </div>
 	    </div>
@@ -333,7 +336,7 @@
 		      </div>
 		      <div class="modal-footer">
 		         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		         <button type="submit" class="btn btn-primary" id="modalUpdateButton">Update</button>
+		         <button type="submit" class="btn btn-success" id="modalUpdateButton">Update</button>
 		      </div>
 	       </form>
 	    </div>
@@ -358,31 +361,31 @@
 		      <div class="modal-body">
 		         <div class="form-group">
 		            <label for="modal_marka" class="col-form-label">Car marka:</label>
-		            <input type="text"  class="form-control" id="modal_marka" name="modal_marka" placeholder="Ferrari">
+		            <input type="text"  class="form-control" id="modal_marka" name="modal_marka" placeholder="Sample: Ferrari">
 		         </div>
 		         <div class="form-group">
 		            <label for="modal_year" class="col-form-label">Car year:</label>
-		            <input type="text"  class="form-control" id="modal_year" name="modal_year" placeholder="2018">
+		            <input type="text"  class="form-control" id="modal_year" name="modal_year" placeholder="Sample: 2018">
 		         </div>
 		         <div class="form-group">
 		            <label for="modal_transmission" class="col-form-label">Car transmission:</label>
-		            <input type="text"  class="form-control" id="modal_transmission" name="modal_transmission" placeholder="Автоматическая">
+		            <input type="text"  class="form-control" id="modal_transmission" name="modal_transmission" placeholder="Sample: Автоматическая">
 		         </div>
 		         <div class="form-group">
 		            <label for="modal_fuel" class="col-form-label">Car fuel:</label>
-		            <input type="text"  class="form-control" id="modal_fuel" name="modal_fuel" placeholder="Бензин">
+		            <input type="text"  class="form-control" id="modal_fuel" name="modal_fuel" placeholder="Sample: Бензин">
 		         </div>
 		         <div class="form-group">
 		            <label for="modal_price" class="col-form-label">Car price:</label>
-		            <input type="text"  class="form-control" id="modal_price" name="modal_price" placeholder="40">
+		            <input type="text"  class="form-control" id="modal_price" name="modal_price" placeholder="Sample: 40">
 		         </div>
 		         <div class="form-group">
 		            <label for="modal_description" class="col-form-label">Car description:</label>
-		            <input type="textarea"  class="form-control" id="modal_description" name="modal_description" placeholder="Легкая претензия на агрессивность в облике авто удачно сочетается с ощущением солидности и стремительности.">
+		            <input type="textarea"  class="form-control" id="modal_description" name="modal_description" placeholder="Sample: Легкая претензия на агрессивность в облике авто удачно сочетается с ощущением солидности и стремительности.">
 		         </div>
 		         <div class="form-group">
 		            <label for="modal_url" class="col-form-label">Car url:</label>
-		            <input type="text"  class="form-control" id="modal_url" name="modal_url" placeholder="https://mydriftfun.com/wp-content/uploads/2017/07/20-Interesting-Facts-about-Ferrari.jpg">
+		            <input type="text"  class="form-control" id="modal_url" name="modal_url" placeholder="Sample: https://mydriftfun.com/wp-content/uploads/2017/07/20-Interesting-Facts-about-Ferrari.jpg">
 		         </div>
 		      </div>
 		      <div class="modal-footer">
@@ -418,7 +421,7 @@
 		  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
 		  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
 		  var modal = $(this)
-		  modal.find('.modal-title').text('Update cars №' + recipient)
+		  modal.find('.modal-title').text('Delete: Car №' + recipient)
 		  modal.find('.modal-body').text('Do you want delete car №' + recipient)
 		  modal.find('#id_car').val(recipient)
 		})
@@ -436,7 +439,7 @@
 		  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
 		  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
 		  var modal = $(this)
-		  modal.find('.modal-title').text('Cars №' + id)
+		  modal.find('.modal-title').text('Update: Car №' + id)
 		  modal.find('#id_car').val(id)
 		  modal.find('#modal_marka').val(marka)
 		  modal.find('#modal_year').val(year)
@@ -449,7 +452,6 @@
 		
 		$('#insertModal').on('show.bs.modal', function (event) {
 			 var button = $(event.relatedTarget) // Button that triggered the modal
-			  var id = button.data('id') // Extract info from data-* attributes
 			  var marka = button.data('marka')
 			  var year = button.data('year')
 			  var transmission = button.data('transmission')
@@ -460,8 +462,7 @@
 			  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
 			  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
 			  var modal = $(this)
-			  modal.find('.modal-title').text('Cars №' + id)
-			  modal.find('#id_car').val(id)
+			  modal.find('.modal-title').text('Insert: New car')
 			  modal.find('#modal_marka').val(marka)
 			  modal.find('#modal_year').val(year)
 			  modal.find('#modal_transmission').val(transmission)
