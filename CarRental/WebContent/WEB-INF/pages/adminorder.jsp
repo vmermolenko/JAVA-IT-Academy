@@ -350,7 +350,6 @@
 	    <div class="modal-content">
 	     <form name="sentMessage" id="contactForm" action = "MainServlet" method = "POST">
      			<input type="hidden" name="action" value="admin">
-     			<input type="hidden" name="pagetype" value="cars">
 	         	<input type="hidden" name="operation" value="insert">
 
 		      <div class="modal-header">

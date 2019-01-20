@@ -58,7 +58,6 @@ public class AdminPanelActionImpl implements BasicAction {
 		}
 
 		List<Auto> listAuto = catalogService.getCatalogAuto();
-
 		req.setAttribute("lst", listAuto);
 
 		try {
