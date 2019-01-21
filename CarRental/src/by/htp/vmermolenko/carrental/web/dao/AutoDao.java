@@ -6,11 +6,12 @@ import by.htp.vmermolenko.carrental.web.entity.Auto;
 
 public interface AutoDao {
 	List<Auto> readAll();
-	void registerOrder(String id_car, String day, String fio, String passport, String phone, String email, String comments);
+	void registerOrder(String id_car, String day, String fio, String passport, String phone, String email, String password, String comments);
 	
 	void insertCar(String marka, String year, String transmission, String fuel, String price, String description, String url);
 	void updateCar(String id, String marka, String year, String transmission, String fuel, String price, String description, String url);
 	void deleteCar(String id);
 	
-
+	String loginUser(String email, String password);
+	String registrationUser(String fio, String passport, String phone, String email, String password);
 }

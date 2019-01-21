@@ -134,14 +134,14 @@
 	            </div>
 	            <div class="control-group form-group">
 	              <div class="controls">
-	                <label>Номер телефона:</label>
-	                <input type="tel" class="form-control" name="phone" id="phone" required data-validation-required-message="Please enter your phone number.">
+	                <label>Серия и номер паспорта:</label>
+	                <input type="text" class="form-control" name="passport" id="passport" required data-validation-required-message="Please enter your passport.">
 	              </div>
 	            </div>
 	            <div class="control-group form-group">
 	              <div class="controls">
-	                <label>Серия и номер паспорта:</label>
-	                <input type="text" class="form-control" name="passport" id="passport" required data-validation-required-message="Please enter your passport.">
+	                <label>Номер телефона:</label>
+	                <input type="tel" class="form-control" name="phone" id="phone" required data-validation-required-message="Please enter your phone number.">
 	              </div>
 	            </div>
 	            <div class="control-group form-group">

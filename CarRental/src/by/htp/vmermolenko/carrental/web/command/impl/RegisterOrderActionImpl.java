@@ -25,11 +25,12 @@ public class RegisterOrderActionImpl implements BasicAction {
 		String passport = req.getParameter("passport");
 		String phone = req.getParameter("phone");
 		String email = req.getParameter("email");
+		String password = req.getParameter("password");
 		String comments = req.getParameter("comments");
 		
-		System.out.println("registerOrder " + id_car + day + fio + passport + phone + email + comments);
+		System.out.println("registerOrder " + id_car + day + fio + passport + phone + email + password + comments);
 		
-		catalogService.registerOrderToCatalog(id_car, day,  fio, passport, phone, email, comments);
+		catalogService.registerOrderToCatalog(id_car, day,  fio, passport, phone, email, password, comments);
 		
 		try {
 			req.getRequestDispatcher("/WEB-INF/pages/succesfully.jsp").forward(req, resp);

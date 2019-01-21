@@ -155,7 +155,7 @@ public class AutoDaoSQLImpl implements AutoDao {
 	}
 
 	@Override
-	public void registerOrder(String id_car, String day, String fio, String passport, String phone, String email, String comments) {
+	public void registerOrder(String id_car, String day, String fio, String passport, String phone, String email, String password, String comments) {
 		// TODO Auto-generated method stub
 		System.out.println("registerOrder " + id_car + day + fio + passport + phone + email + comments);
 	}
@@ -181,4 +181,18 @@ public class AutoDaoSQLImpl implements AutoDao {
 		System.out.println("deleteCar " + id );
 		
 	}
+
+	@Override
+	public String loginUser(String email, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String registrationUser(String fio, String passport, String phone, String email, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 }

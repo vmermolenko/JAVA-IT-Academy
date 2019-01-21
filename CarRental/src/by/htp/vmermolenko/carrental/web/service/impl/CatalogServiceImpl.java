@@ -31,9 +31,9 @@ public class CatalogServiceImpl implements CatalogService {
 	}
 
 	@Override
-	public void registerOrderToCatalog(String id_car, String day, String fio, String passport, String phone, String email, String comments) {
+	public void registerOrderToCatalog(String id_car, String day, String fio, String passport, String phone, String email, String password, String comments) {
 		// TODO Auto-generated method stub
-		autoDao.registerOrder(id_car, day, fio, passport, phone, email, comments);
+		autoDao.registerOrder(id_car, day, fio, passport, phone, email, password, comments);
 	}
 
 	@Override
@@ -54,5 +54,17 @@ public class CatalogServiceImpl implements CatalogService {
 	public void deleteCar(String id) {
 		// TODO Auto-generated method stub
 		autoDao.deleteCar(id);
+	}
+
+	@Override
+	public String loginUser(String email, String password) {
+		// TODO Auto-generated method stub
+		return autoDao.loginUser(email, password);
+	}
+
+	@Override
+	public String registrationUser(String fio, String passport, String phone, String email, String password) {
+		// TODO Auto-generated method stub
+		return autoDao.registrationUser(fio, passport, phone, email, password);
 	}
 }

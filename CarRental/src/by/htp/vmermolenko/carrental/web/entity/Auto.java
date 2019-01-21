@@ -11,6 +11,17 @@ public class Auto {
 	String description;
 	String url;
 	
+	public Auto(int year, String marka, String transmission, String fuel, int price, String description, String url) {
+		super();
+		this.year = year;
+		this.marka = marka;
+		this.transmission = transmission;
+		this.fuel = fuel;
+		this.price = price;
+		this.description = description;
+		this.url = url;
+	}
+
 	public Auto(int id, int year, String marka, String transmission, String fuel, int price, String description,
 			String url) {
 		super();
@@ -23,6 +34,7 @@ public class Auto {
 		this.description = description;
 		this.url = url;
 	}
+	
 	public int getId() {
 		return id;
 	}

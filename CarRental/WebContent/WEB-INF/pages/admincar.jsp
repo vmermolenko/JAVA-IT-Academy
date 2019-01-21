@@ -118,7 +118,7 @@
             <span>Charts</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="MainServlet?action=admin">
+          <a class="nav-link" href="MainServlet?action=admin&type=cars">
             <i class="fas fa-fw fa-table"></i>
             <span>Cars</span></a>
         </li>
@@ -279,6 +279,7 @@
 	        
 	         <form name="sentMessage" id="contactForm" action = "MainServlet" method = "POST">
 	         	<input type="hidden" name="action" value="admin">
+	         	<input type="hidden" name="type" value="cars">
 	         	<input type="hidden" name="operation" value="delete">
 	            <input type="hidden" id="id_car" name="id_car" value="">
 	         <button type="submit" class="btn btn-danger" id="sendMessageButton">Delete</button>
@@ -295,6 +296,7 @@
 	    <div class="modal-content">
 	     <form name="sentMessage" id="contactForm" action = "MainServlet" method = "POST">
      			<input type="hidden" name="action" value="admin">
+     			<input type="hidden" name="type" value="cars">
 	         	<input type="hidden" name="operation" value="update">
 	            <input type="hidden" name="id_car" id="id_car" value="">
 
@@ -350,7 +352,7 @@
 	    <div class="modal-content">
 	     <form name="sentMessage" id="contactForm" action = "MainServlet" method = "POST">
      			<input type="hidden" name="action" value="admin">
-     			<input type="hidden" name="pagetype" value="cars">
+     			<input type="hidden" name="type" value="cars">
 	         	<input type="hidden" name="operation" value="insert">
 
 		      <div class="modal-header">

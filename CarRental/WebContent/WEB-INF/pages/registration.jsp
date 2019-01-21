@@ -169,24 +169,25 @@
     </nav>
 
 <div class="signup-form">
-    <form action="/examples/actions/confirmation.php" method="post">
+    <form action="MainServlet?action=registration" method="post">
 		<h2>Регистрация</h2>
 		<p class="hint-text">Создать учетную запись. Это бесплатно и займет всего минуту.</p>
         <div class="form-group">
-			<input type="text" class="form-control" name="first_name" placeholder="ФИО" required="required">
+			<input type="text" class="form-control" name="fio" placeholder="ФИО" required="required">
         </div>
         <div class="form-group">
 			<input type="text" class="form-control" name="passport" placeholder="Паспорт" required="required">
         </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="phone" placeholder="Телефон" required="required">
+        </div> 
         <div class="form-group">
         	<input type="email" class="form-control" name="email" placeholder="Электронная почта" required="required">
         </div>
 		<div class="form-group">
             <input type="password" class="form-control" name="password" placeholder="Пароль" required="required">
         </div>
-		<div class="form-group">
-            <input type="password" class="form-control" name="confirm_password" placeholder="Повторите пароль" required="required">
-        </div>        
+		       
         <div class="form-group">
 			<label class="checkbox-inline"><input type="checkbox" required="required"> Я принимаю <a href="#">Соглашение</a></label>
 		</div>
