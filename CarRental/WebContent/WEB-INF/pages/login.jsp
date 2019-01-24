@@ -169,7 +169,7 @@
     </nav>
 
 <div class="signup-form">
-    <form action="MainServlet?action=enter" method="post">
+    <form action="MainServlet?action=login" method="post">
 		<h2>Вход</h2>
 		
         <div class="form-group">

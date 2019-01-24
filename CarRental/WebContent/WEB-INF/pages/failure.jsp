@@ -5,11 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Успешно</title>
+<title>Не успешно</title>
 </head>
 <body>
 
-<h1>Ваша заявка принята</h1>
+<h1>Недостаточно средств</h1>
+<br />
+<h2><c:out value="${ result }" /></h2>
 
 
 <a href="index.jsp">На главную</a>

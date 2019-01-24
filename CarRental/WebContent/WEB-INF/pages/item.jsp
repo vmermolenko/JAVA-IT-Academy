@@ -102,9 +102,10 @@
 	      <div class="row">
 	        <div class="col-lg-12 mb-4">
 	          <h3>Форма заказа</h3>
-	          <form name="sentMessage" id="contactForm" action = "MainServlet" method = "POST">
+	          <form name="sentMessage" id="contactForm" action = "MainServlet?action=setorder" method = "POST">
 	           <input type="hidden" name="action" value="setorder">
 	           <input type="hidden" name="id_car" value="${item.id}">
+	           <input type="hidden" name="price" value="${item.price}">
 	           <div class="control-group form-group">
 	              <div class="controls">
 	                <label>Количество дней аренды:</label>

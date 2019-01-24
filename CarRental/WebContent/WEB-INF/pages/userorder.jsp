@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>AdminCar</title>
+<title>UserCar</title>
  <!-- Bootstrap core CSS-->
     <!-- link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" -->
      <!-- Bootstrap CSS -->
@@ -27,16 +27,16 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="index.jsp">Start Bootstrap</a>
+      <a class="navbar-brand mr-1" href="MainServlet?action=login&logout=refresh&email=<c:out value="${ email }" />">User Panel</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
       </button>
 
       <!-- Navbar Search -->
-      <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-       
-      </form>
+      <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+
+      </div>
 
       <!-- Navbar -->
       <ul class="navbar-nav ml-auto ml-md-0">
@@ -45,8 +45,7 @@
             <i class="fas fa-user-circle fa-fw"></i>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+            <a class="dropdown-item" href="" data-toggle="modal" data-target="#logoutModal">Logout</a>
           </div>
         </li>
       </ul>
@@ -58,36 +57,15 @@
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="MainServlet?action=login&logout=refresh&email=<c:out value="${ email }" />">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
           </a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Pages</span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <h6 class="dropdown-header">Login Screens:</h6>
-            <a class="dropdown-item" href="login.html">Login</a>
-            <a class="dropdown-item" href="register.html">Register</a>
-            <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-            <div class="dropdown-divider"></div>
-            <h6 class="dropdown-header">Other Pages:</h6>
-            <a class="dropdown-item" href="404.html">404 Page</a>
-            <a class="dropdown-item" href="blank.html">Blank Page</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="MainServlet?action=admin&type=orders">
+        <li class="nav-item active">
+          <a class="nav-link" href="MainServlet?action=login&logout=refresh&email=<c:out value="${ email }" />">
             <i class="fas fa-fw fa-table"></i>
             <span>Order</span></a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="MainServlet?action=admin&type=cars">
-            <i class="fas fa-fw fa-car"></i>
-            <span>Cars</span></a>
         </li>
       </ul>
 
@@ -98,19 +76,16 @@
           <!-- Breadcrumbs-->
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="#">Dashboard</a>
+              <a href="MainServlet?action=login&logout=refresh&email=<c:out value="${ email }" />">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Cars</li>
+            <li class="breadcrumb-item active">Order</li>
           </ol>
 
           <!-- DataTables Example -->
           <div class="card mb-3">
             <div class="card-header">
               <i class="fas fa-table"></i>
-              Cars Table
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#insertModal">
-				Insert new car
-			  </button>
+              Order
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -125,6 +100,9 @@
                       <th>price</th>
                       <th>description</th>
                       <th>image</th>
+                      <th>day</th>
+                      <th>total</th> 
+                      <th>status</th>   
                       <th>action</th>
                       
                     </tr>
@@ -139,6 +117,9 @@
                       <th>price</th>
                       <th>description</th>
                       <th>image</th>
+                      <th>day</th>
+                      <th>total</th> 
+                      <th>status</th> 
                       <th>action</th>
                     </tr>
                   </tfoot>
@@ -147,27 +128,35 @@
 	                  <c:forEach var="elem" items="${lst}" varStatus="status">
 	                   <tr>
 	                      <td>${ elem.id }</td>
-	                      <td>${ elem.marka }</td>
-	                      <td>${ elem.year }</td>
-	                      <td>${ elem.transmission }</td>
-	                      <td>${ elem.fuel }</td>
-	                      <td>${ elem.price }</td>
-	                      <td>${ elem.description }</td>
-	                      <td><img height="100" src="<c:out value="${ elem.url }" />"></td>
+	                      <td>${ elem.auto.marka }</td>
+	                      <td>${ elem.auto.year }</td>
+	                      <td>${ elem.auto.transmission }</td>
+	                      <td>${ elem.auto.fuel }</td>
+	                      <td>${ elem.auto.price }</td>
+	                      <td>${ elem.auto.description }</td>
+	                      <td><img height="100" src="<c:out value="${ elem.auto.url }" />"></td>
+	                      <td>${ elem.day }</td>
+	                      <td>${ elem.total }</td>
+	                      <td>${ elem.status }</td>
 	                      <td>
 	                      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#updateModal" 
 			                      data-id="${ elem.id }"
-			                      data-marka="${ elem.marka }"
-			                      data-year="${ elem.year }"
-			                      data-transmission="${ elem.transmission }"
-			                      data-fuel="${ elem.fuel }"
-			                      data-price="${ elem.price }"
-			                      data-description="${ elem.description }"
-			                      data-url="${ elem.url }">
+			                      data-marka="${ elem.auto.marka }"
+			                      data-year="${ elem.auto.year }"
+			                      data-transmission="${ elem.auto.transmission }"
+			                      data-fuel="${ elem.auto.fuel }"
+			                      data-price="${ elem.auto.price }"
+			                      data-description="${ elem.auto.description }"
+			                      data-url="${ elem.auto.url }">
 							  Update
 						  </button>
+						  
 			              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-id="${ elem.id }">
 							  Delete
+						  </button>
+						  
+						   <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-id="${ elem.id }">
+							  Pay
 						  </button>
 
 	                      </td>
@@ -268,7 +257,7 @@
 	            <input type="hidden" name="id_car" id="id_car" value="">
 
 		      <div class="modal-header">
-		        <h5 class="modal-title" id="updateModalLabel">Редактирование </h5>
+		        <h5 class="modal-title" id="updateModalLabel">Редактирование</h5>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          <span aria-hidden="true">&times;</span>
 		        </button>
