@@ -5,6 +5,7 @@ import java.util.List;
 import by.htp.vmermolenko.carrental.web.dao.AutoDao;
 import by.htp.vmermolenko.carrental.web.dao.impl.AutoDaoSQLImpl;
 import by.htp.vmermolenko.carrental.web.entity.Auto;
+import by.htp.vmermolenko.carrental.web.entity.Order;
 import by.htp.vmermolenko.carrental.web.service.CatalogService;
 
 public class CatalogServiceImpl implements CatalogService {
@@ -31,9 +32,9 @@ public class CatalogServiceImpl implements CatalogService {
 	}
 
 	@Override
-	public void registerOrderToCatalog(String id_car, String day, String fio, String passport, String phone, String email, String password, String comments) {
+	public String registerOrderToCatalog(String id_car, String day, String fio, String passport, String phone, String email, String password, String comments) {
 		// TODO Auto-generated method stub
-		autoDao.registerOrder(id_car, day, fio, passport, phone, email, password, comments);
+		return autoDao.registerOrder(id_car, day, fio, passport, phone, email, password, comments);
 	}
 
 	@Override
@@ -66,5 +67,24 @@ public class CatalogServiceImpl implements CatalogService {
 	public String registrationUser(String fio, String passport, String phone, String email, String password) {
 		// TODO Auto-generated method stub
 		return autoDao.registrationUser(fio, passport, phone, email, password);
+	}
+
+	@Override
+	public List<Order> readOrderAll() {
+		// TODO Auto-generated method stub
+		return autoDao.readOrderAll();
+	}
+
+	@Override
+	public List<Order> readOrderUser(String email) {
+		// TODO Auto-generated method stub
+		return autoDao.readOrderUser(email);
+	}
+
+	@Override
+	public String registerPayment(String id_order, String cardnumber, String cardexpiry, String cardcvc, String total) {
+		// TODO Auto-generated method stub
+		return autoDao.registerPaymentUser(id_order, cardnumber, cardexpiry, cardcvc, total);
+
 	}
 }

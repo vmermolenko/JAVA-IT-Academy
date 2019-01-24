@@ -5,6 +5,7 @@ import java.util.List;
 
 import by.htp.vmermolenko.carrental.web.dao.AutoDao;
 import by.htp.vmermolenko.carrental.web.entity.Auto;
+import by.htp.vmermolenko.carrental.web.entity.Order;
 
 public class AutoDaoSQLImpl implements AutoDao {
 
@@ -155,9 +156,12 @@ public class AutoDaoSQLImpl implements AutoDao {
 	}
 
 	@Override
-	public void registerOrder(String id_car, String day, String fio, String passport, String phone, String email, String password, String comments) {
+	public String registerOrder(String id_car, String day, String fio, String passport, String phone, String email, String password, String comments) {
 		// TODO Auto-generated method stub
 		System.out.println("registerOrder " + id_car + day + fio + passport + phone + email + comments);
+		
+		String id_order = "123";
+		return id_order;
 	}
 
 	@Override
@@ -192,6 +196,83 @@ public class AutoDaoSQLImpl implements AutoDao {
 	public String registrationUser(String fio, String passport, String phone, String email, String password) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<Order> readOrderAll() {
+		// TODO Auto-generated method stub
+		List<Order> listOrder = new ArrayList();
+		
+		listOrder.add(new Order(1, 2, 20, "Оплачено", "Userfio", "Userpassport", "Userphone", "Useremail", "Usercomments", 
+				new Auto(6, 2018, "Ford Fusion", "Автоматическая", "Бензин", 40, "Автомобиль Ford Fusion второго поколения – это надежность, стиль, комфорт и впечатляющая отделка салона.\r\n" + 
+				"\r\n" + 
+				"			Легкая претензия на агрессивность в облике авто удачно сочетается с ощущением солидности и стремительности.\r\n" + 
+				"			\r\n" + 
+				"			Для водителей с небогатым опытом приятным дополнением будет простота в управлении и наличие «умной» бортовой электроники, облегчающей вождение.\r\n" + 
+				"			\r\n" + 
+				"			Причин выбрать для проката Ford Fusion множество, вот лишь некоторые из них:\r\n" + 
+				"			\r\n" + 
+				"			Отличный баланс между мощностью и экономичностью;\r\n" + 
+				"			Идеальная управляемость;\r\n" + 
+				"			6-ступенчатая автоматическая трансмиссия;\r\n" + 
+				"			Анатомические сиденья, высокое качество материалов салона;\r\n" + 
+				"			Безупречные параметры активной и пассивной безопасности;\r\n" + 
+				"			Управление климатом, круиз-контроль;\r\n" + 
+				"			Просторное багажное отделение;\r\n" + 
+				"			Акустическая система уровня премиум.", "http://777-77-77.by/cms/images/2018/11/viber-image-e1542377439385.jpg")));
+		
+		
+		listOrder.add(new Order(1, 2, 20, "Оплачено", "Userfio", "Userpassport", "Userphone", "Useremail", "Usercomments", 
+				new Auto(6, 2018, "Ford Fusion", "Автоматическая", "Бензин", 40, "Автомобиль Ford Fusion второго поколения – это надежность, стиль, комфорт и впечатляющая отделка салона.\r\n" + 
+				"\r\n" + 
+				"			Легкая претензия на агрессивность в облике авто удачно сочетается с ощущением солидности и стремительности.\r\n" + 
+				"			\r\n" + 
+				"			Для водителей с небогатым опытом приятным дополнением будет простота в управлении и наличие «умной» бортовой электроники, облегчающей вождение.\r\n" + 
+				"			\r\n" + 
+				"			Причин выбрать для проката Ford Fusion множество, вот лишь некоторые из них:\r\n" + 
+				"			\r\n" + 
+				"			Акустическая система уровня премиум.", "http://777-77-77.by/cms/images/2018/11/viber-image-e1542377439385.jpg")));
+		
+		return listOrder;
+	}
+
+	@Override
+	public List<Order> readOrderUser(String email) {
+		// TODO Auto-generated method stub
+		
+		List<Order> listOrder = new ArrayList();
+		
+		listOrder.add(new Order(1, 2, 20, "Оплачено", "Userfio", "Userpassport", "Userphone", "Useremail", "Usercomments", 
+				new Auto(6, 2018, "Ford Fusion", "Автоматическая", "Бензин", 40, "Автомобиль Ford Fusion второго поколения – это надежность, стиль, комфорт и впечатляющая отделка салона.\r\n" + 
+				"\r\n" + 
+				"			Легкая претензия на агрессивность в облике авто удачно сочетается с ощущением солидности и стремительности.\r\n" + 
+				"			\r\n" + 
+				"			Для водителей с небогатым опытом приятным дополнением будет простота в управлении и наличие «умной» бортовой электроники, облегчающей вождение.\r\n" + 
+				"			\r\n" + 
+				"			Причин выбрать для проката Ford Fusion множество, вот лишь некоторые из них:\r\n" + 
+				"			\r\n" + 
+				"			Акустическая система уровня премиум.", "http://777-77-77.by/cms/images/2018/11/viber-image-e1542377439385.jpg")));
+		
+		
+		listOrder.add(new Order(1, 2, 20, "Выставлен счет", "Userfio", "Userpassport", "Userphone", "Useremail", "Usercomments", 
+				new Auto(6, 2018, "Ford Fusion", "Автоматическая", "Бензин", 40, "Автомобиль Ford Fusion второго поколения – это надежность, стиль, комфорт и впечатляющая отделка салона.\r\n" + 
+				"\r\n" + 
+				"			Легкая претензия на агрессивность в облике авто удачно сочетается с ощущением солидности и стремительности.\r\n" + 
+				"			\r\n" + 
+				"			Для водителей с небогатым опытом приятным дополнением будет простота в управлении и наличие «умной» бортовой электроники, облегчающей вождение.\r\n" + 
+				"			\r\n" + 
+				"			Причин выбрать для проката Ford Fusion множество, вот лишь некоторые из них:\r\n" + 
+				"			\r\n" + 
+				"			Акустическая система уровня премиум.", "http://777-77-77.by/cms/images/2018/11/viber-image-e1542377439385.jpg")));
+		
+		return listOrder;
+	}
+
+	@Override
+	public String registerPaymentUser(String id_order, String cardnumber, String cardexpiry, String cardcvc, String total) {
+		// TODO Auto-generated method stub
+		
+		return "NO";
 	}
 
 

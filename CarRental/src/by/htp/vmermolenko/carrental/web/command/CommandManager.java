@@ -19,6 +19,8 @@ public class CommandManager {
 			return new RegisterActionImpl();
 		case "admin":
 			return new AdminPanelActionImpl();
+		case "creditcard":
+			return new CreditCardActionImpl();
 		default:
 			return new DefaultActionImpl();
 		}

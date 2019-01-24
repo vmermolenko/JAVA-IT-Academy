@@ -81,7 +81,13 @@ public class AdminPanelActionImpl implements BasicAction {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} else if (type.equals("order")) {
+		} else if (type.equals("orders")) {
+			try {
+				req.getRequestDispatcher("/WEB-INF/pages/adminorder.jsp").forward(req, resp);
+			} catch (ServletException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 		} else if (type.equals("client")) {
 			
