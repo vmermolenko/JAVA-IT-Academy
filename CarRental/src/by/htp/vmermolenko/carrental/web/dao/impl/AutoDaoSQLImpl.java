@@ -1,19 +1,37 @@
 package by.htp.vmermolenko.carrental.web.dao.impl;
 
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
 
 import by.htp.vmermolenko.carrental.web.dao.AutoDao;
 import by.htp.vmermolenko.carrental.web.entity.Auto;
 import by.htp.vmermolenko.carrental.web.entity.Order;
 
+import static by.htp.vmermolenko.carrental.web.dao.utils.DaoConstant.*;
+
 public class AutoDaoSQLImpl implements AutoDao {
 
+	private static final String SQL_INSERT_AUTO = "INSERT INTO autopark.auto (marka, year, transmission, fuel, price, description, url) VALUES (?,?,?,?,?,?,?)";
+	private static final String SQL_DELETE_AUTO = "DELETE FROM autopark.auto WHERE id = ?";
+	private static final String SQL_UPDATE_AUTO = "UPDATE autopark.auto SET marka = ?, year = ?, transmission = ?, fuel = ?, price = ?, description = ?, url = ? WHERE id = ?";
+	private static final String SQL_INSERT_ORDER = "INSERT INTO autopark.order (id_car, day, fio, passport, phone, email, password, comments ) VALUES (?,?,?,?,?,?,?,?)";
+	
+	
 	@Override
 	public List<Auto> readAll() {
 		// TODO Auto-generated method stub
 		
 		List<Auto> listAuto = new ArrayList();
+		
+		/*
 		listAuto.add(new Auto(1, 2010, "Ford Fusion", "Автоматическая", "Бензин", 20, "Автомобиль Ford Fusion второго поколения – это надежность, стиль, комфорт и впечатляющая отделка салона.\r\n" + 
 				"\r\n" + 
 				"			Легкая претензия на агрессивность в облике авто удачно сочетается с ощущением солидности и стремительности.\r\n" + 
@@ -150,7 +168,42 @@ public class AutoDaoSQLImpl implements AutoDao {
 				"			Управление климатом, круиз-контроль;\r\n" + 
 				"			Просторное багажное отделение;\r\n" + 
 				"			Акустическая система уровня премиум.", "http://777-77-77.by/cms/images/2018/11/viber-image-e1542377439385.jpg"));
+		*/
 		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			try (Connection con = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {
+
+				Statement st = con.createStatement();
+				ResultSet rs = st.executeQuery("select * from auto");
+
+				while (rs.next()) {
+					int id = rs.getInt("id");
+					int year = rs.getInt("year");
+					String marka = rs.getString("marka");
+					String transmission = rs.getString("transmission");
+					String fuel = rs.getString("fuel");
+					int price = rs.getInt("price");
+					String description = rs.getString("description");
+					String url = rs.getString("url");
+					
+
+					Auto auto = new Auto(id, year, marka, transmission, fuel, price, description, url);
+
+					listAuto.add(auto);
+
+					// System.out.println("id: " + id + ", title: " + title);
+
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO: handle exception
+		}
+
 		
 		return listAuto;
 	}
@@ -158,9 +211,49 @@ public class AutoDaoSQLImpl implements AutoDao {
 	@Override
 	public String registerOrder(String id_car, String day, String fio, String passport, String phone, String email, String password, String comments) {
 		// TODO Auto-generated method stub
-		System.out.println("registerOrder " + id_car + day + fio + passport + phone + email + comments);
+		System.out.println("registerOrder " + id_car + day + fio + passport + phone + email + password +  comments);
+		long key = 0;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			try (Connection con = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {
+
+				
+				PreparedStatement ps = con.prepareStatement(SQL_INSERT_ORDER, Statement.RETURN_GENERATED_KEYS);
+				
+				ps.setInt(1, Integer.parseInt(id_car));
+				ps.setInt(2, Integer.parseInt(day));
+				ps.setString(3, fio);
+				ps.setString(4, passport);
+				ps.setString(5, phone);
+				ps.setString(6, email);
+				ps.setString(7, password);
+				ps.setString(8, comments);
+
+				System.out.println(ps.toString());
+				
+				ps.executeUpdate();
+				
+				
+				ResultSet rs = ps.getGeneratedKeys();
+				if (rs != null && rs.next()) {
+				    key = rs.getLong(1);
+				    System.out.println(key);
+				}
+				
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO: handle exception
+		}
+		
 		
 		String id_order = "123";
+
+		id_order = Long.toString(key);
+		
 		return id_order;
 	}
 
@@ -168,6 +261,41 @@ public class AutoDaoSQLImpl implements AutoDao {
 	public void insertCar(String marka, String year, String transmission, String fuel, String price, String description,
 			String url) {
 		// TODO Auto-generated method stub
+		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			try (Connection con = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {
+
+				
+				PreparedStatement ps = con.prepareStatement(SQL_INSERT_AUTO, Statement.RETURN_GENERATED_KEYS);
+				
+				ps.setString(1, marka);
+				ps.setInt(2, Integer.parseInt(year));
+				ps.setString(3, transmission);
+				ps.setString(4, fuel);
+				ps.setInt(5, Integer.parseInt(price));
+				ps.setString(6, description);
+				ps.setString(7, url);
+				
+				ps.executeUpdate();
+				
+				long key = 0;
+				ResultSet rs = ps.getGeneratedKeys();
+				if (rs != null && rs.next()) {
+				    key = rs.getLong(1);
+				    System.out.println(key);
+				}
+				
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO: handle exception
+		}
+		
+
 		System.out.println("insertCar " + marka + year + transmission + fuel + price + description + url);
 		
 	}
@@ -176,13 +304,58 @@ public class AutoDaoSQLImpl implements AutoDao {
 	public void updateCar(String id, String marka, String year, String transmission, String fuel, String price,
 			String description, String url) {
 		// TODO Auto-generated method stub
-		System.out.println("updateCar " + id + marka + year + transmission + fuel + price + description + url);
+		System.out.println("Update");
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			try (Connection con = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {
+
+				
+				PreparedStatement ps = con.prepareStatement(SQL_UPDATE_AUTO);
+				
+				ps.setString(1, marka);
+				ps.setInt(2, Integer.parseInt(year));
+				ps.setString(3, transmission);
+				ps.setString(4, fuel);
+				ps.setInt(5, Integer.parseInt(price));
+				ps.setString(6, description);
+				ps.setString(7, url);
+				ps.setInt(8, Integer.parseInt(id));
+				
+				ps.executeUpdate();
+
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO: handle exception
+		}
+
 	}
 
 	@Override
 	public void deleteCar(String id) {
 		// TODO Auto-generated method stub
-		System.out.println("deleteCar " + id );
+		
+		System.out.println("Delete");
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			try (Connection con = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {
+
+				
+				PreparedStatement ps = con.prepareStatement(SQL_DELETE_AUTO);
+				ps.setInt(1, Integer.parseInt(id));
+				ps.executeUpdate();
+
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO: handle exception
+		}
 		
 	}
 
@@ -202,7 +375,7 @@ public class AutoDaoSQLImpl implements AutoDao {
 	public List<Order> readOrderAll() {
 		// TODO Auto-generated method stub
 		List<Order> listOrder = new ArrayList();
-		
+		/*
 		listOrder.add(new Order(1, 2, 20, "Оплачено", "Userfio", "Userpassport", "Userphone", "Useremail", "Usercomments", 
 				new Auto(6, 2018, "Ford Fusion", "Автоматическая", "Бензин", 40, "Автомобиль Ford Fusion второго поколения – это надежность, стиль, комфорт и впечатляющая отделка салона.\r\n" + 
 				"\r\n" + 
@@ -232,16 +405,70 @@ public class AutoDaoSQLImpl implements AutoDao {
 				"			Причин выбрать для проката Ford Fusion множество, вот лишь некоторые из них:\r\n" + 
 				"			\r\n" + 
 				"			Акустическая система уровня премиум.", "http://777-77-77.by/cms/images/2018/11/viber-image-e1542377439385.jpg")));
+		*/
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			try (Connection con = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {
+
+				Statement st = con.createStatement();
+				ResultSet rs = st.executeQuery("SELECT * FROM autopark.`order` t1, autopark.auto t2 where t2.id = t1.id_car");
+
+				while (rs.next()) {
+					
+					int id = rs.getInt("id");
+					int day = rs.getInt("day");
+					int total = rs.getInt("total");
+					String status = rs.getString("status");
+					String fio = rs.getString("fio");
+					String passport = rs.getString("passport");
+					String phone = rs.getString("phone");
+					String email = rs.getString("email");
+					String comments = rs.getString("comments");
+					
+					
+					int id_car = rs.getInt("id_car");
+					int year = rs.getInt("year");
+					String marka = rs.getString("marka");
+					String transmission = rs.getString("transmission");
+					String fuel = rs.getString("fuel");
+					int price = rs.getInt("price");
+					String description = rs.getString("description");
+					String url = rs.getString("url");
+					
+					
+
+					Order order = new Order(id, day, total, status, fio, passport, phone, email, comments, new Auto(id_car, year, marka, transmission, fuel, price, description, url));
+	
+
+					listOrder.add(order);
+
+					// System.out.println("id: " + id + ", title: " + title);
+
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO: handle exception
+		}
+		
+		
+		
+		
+		
 		
 		return listOrder;
 	}
 
 	@Override
-	public List<Order> readOrderUser(String email) {
+	public List<Order> readOrderUser(String emailUser) {
 		// TODO Auto-generated method stub
 		
 		List<Order> listOrder = new ArrayList();
 		
+		/*
 		listOrder.add(new Order(1, 2, 20, "Оплачено", "Userfio", "Userpassport", "Userphone", "Useremail", "Usercomments", 
 				new Auto(6, 2018, "Ford Fusion", "Автоматическая", "Бензин", 40, "Автомобиль Ford Fusion второго поколения – это надежность, стиль, комфорт и впечатляющая отделка салона.\r\n" + 
 				"\r\n" + 
@@ -264,6 +491,66 @@ public class AutoDaoSQLImpl implements AutoDao {
 				"			Причин выбрать для проката Ford Fusion множество, вот лишь некоторые из них:\r\n" + 
 				"			\r\n" + 
 				"			Акустическая система уровня премиум.", "http://777-77-77.by/cms/images/2018/11/viber-image-e1542377439385.jpg")));
+		
+		*/
+		
+		
+		
+		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			try (Connection con = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {
+
+				Statement st = con.createStatement();
+				ResultSet rs = st.executeQuery("SELECT * FROM autopark.`order` t1, autopark.auto t2 where t2.id = t1.id_car and t1.email = '" + emailUser +"'");
+
+				while (rs.next()) {
+					
+					int id = rs.getInt("id");
+					int day = rs.getInt("day");
+					int total = rs.getInt("total");
+					String status = rs.getString("status");
+					String fio = rs.getString("fio");
+					String passport = rs.getString("passport");
+					String phone = rs.getString("phone");
+					String email = rs.getString("email");
+					String comments = rs.getString("comments");
+					
+					
+					int id_car = rs.getInt("id_car");
+					int year = rs.getInt("year");
+					String marka = rs.getString("marka");
+					String transmission = rs.getString("transmission");
+					String fuel = rs.getString("fuel");
+					int price = rs.getInt("price");
+					String description = rs.getString("description");
+					String url = rs.getString("url");
+					
+					
+
+					Order order = new Order(id, day, total, status, fio, passport, phone, email, comments, new Auto(id_car, year, marka, transmission, fuel, price, description, url));
+	
+
+					listOrder.add(order);
+
+					// System.out.println("id: " + id + ", title: " + title);
+
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO: handle exception
+		}
+		
+		
+		
+		
+		
+		
+		
 		
 		return listOrder;
 	}
